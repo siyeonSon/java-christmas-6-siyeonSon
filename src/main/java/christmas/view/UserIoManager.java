@@ -4,6 +4,7 @@ import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_PROM
 import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_PROMOTION_YEAR;
 
 import christmas.model.user.UserDate;
+import christmas.model.user.Order;
 import christmas.util.Repeater;
 
 public class UserIoManager {
@@ -23,9 +24,19 @@ public class UserIoManager {
         return Repeater.reTryUntilSuccess(this::readDate);
     }
 
+    public Order readOrderUntilSuccess() {
+        return Repeater.reTryUntilSuccess(this::readOrder);
+    }
+
     private UserDate readDate() {
         outputView.printDateInputGuide();
         int date = inputView.readDate();
         return new UserDate(CHRISTMAS_PROMOTION_YEAR, CHRISTMAS_PROMOTION_MONTH, date);
+    }
+
+    private Order readOrder() {
+        outputView.printOrderInputGuide();
+        String order = inputView.readOrder();
+        return new Order(order);
     }
 }

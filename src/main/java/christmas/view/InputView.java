@@ -12,6 +12,12 @@ public class InputView {
         return NumericConverter.convert(input);
     }
 
+    public String readOrder() {
+        String input = Console.readLine();
+        BlankValidator.validate(input);
+        return input;
+    }
+
     private void validateNumeric(String value) {
         BlankValidator.validate(value);
         DigitsOnlyValidator.validate(value);

@@ -1,6 +1,7 @@
 package christmas.controller;
 
 import christmas.model.user.UserDate;
+import christmas.model.user.Order;
 import christmas.view.UserIoManager;
 
 public class PromotionController {
@@ -13,5 +14,6 @@ public class PromotionController {
     public void run() {
         userIoManager.printWelcome();
         UserDate userDate = userIoManager.readDateUntilSuccess();
+        Order order = userIoManager.readOrderUntilSuccess();
     }
 }
