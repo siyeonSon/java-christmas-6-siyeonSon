@@ -13,4 +13,10 @@ public class Order {
     public Map<MenuItem, Integer> getMenuItems() {
         return menuItems;
     }
+
+    public long calculateTotalPrice() {
+        return menuItems.entrySet().stream()
+                .mapToLong(entry -> (long) entry.getKey().getPrice() * entry.getValue())
+                .sum();
+    }
 }
