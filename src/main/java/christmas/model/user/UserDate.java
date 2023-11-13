@@ -3,6 +3,7 @@ package christmas.model.user;
 import static christmas.util.message.ErrorMessages.DATE_INVALID_EXCEPTION;
 
 import java.time.DateTimeException;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 
 public class UserDate {
@@ -10,6 +11,18 @@ public class UserDate {
 
     public UserDate(int year, int month, int date) {
         this.date = parseToDate(year, month, date);
+    }
+
+    public int getMonthValue() {
+        return date.getMonthValue();
+    }
+
+    public int getDayOfMonth() {
+        return date.getDayOfMonth();
+    }
+
+    public DayOfWeek getDayOfWeek() {
+        return date.getDayOfWeek();
     }
 
     private LocalDate parseToDate(int year, int month, int date) {

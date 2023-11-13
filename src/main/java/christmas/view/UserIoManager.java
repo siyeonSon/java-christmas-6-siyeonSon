@@ -25,6 +25,10 @@ public class UserIoManager {
         return Repeater.reTryUntilSuccess(this::readOrder);
     }
 
+    public void printEventGuide(UserDate userDate) {
+        outputView.printEventGuide(userDate);
+    }
+
     private UserDate readDate(int year, int month) {
         outputView.printDateInputGuide();
         int date = inputView.readDate();

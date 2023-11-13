@@ -4,7 +4,10 @@ import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_PROM
 import static christmas.util.message.ErrorMessages.PREFIX;
 import static christmas.util.message.ViewMessages.INPUT_DATE;
 import static christmas.util.message.ViewMessages.INPUT_ORDER;
+import static christmas.util.message.ViewMessages.OUTPUT_EVENT_GUIDE;
 import static christmas.util.message.ViewMessages.WELCOME;
+
+import christmas.model.user.UserDate;
 
 public class OutputView {
     public static void printErrorMessage(String message) {
@@ -21,6 +24,14 @@ public class OutputView {
 
     public void printOrderInputGuide() {
         println(INPUT_ORDER);
+    }
+
+    public void printEventGuide(UserDate userDate) {
+        println(formatEventGuide(userDate));
+    }
+
+    private String formatEventGuide(UserDate userDate) {
+        return String.format(OUTPUT_EVENT_GUIDE, userDate.getMonthValue(), userDate.getDayOfMonth());
     }
 
     private void println(String message) {
