@@ -7,4 +7,6 @@ public class ViewMessages {
     public static final String OUTPUT_EVENT_GUIDE = "%d월 %d일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!";
     public static final String OUTPUT_ORDER_GUIDE = "<주문 메뉴>";
     public static final String OUTPUT_MENU = "%s %d개";
+    public static final String OUTPUT_TOTAL_PRICE_GUIDE = "<할인 전 총주문 금액>";
+    public static final String OUTPUT_PRICE = "%,d원";
 }

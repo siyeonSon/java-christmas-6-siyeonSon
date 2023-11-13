@@ -20,5 +20,7 @@ public class PromotionController {
         Order order = userIoManager.readOrderUntilSuccess();
         userIoManager.printEventGuide(userDate);
         userIoManager.printOrder(order);
+        long totalPrice = order.calculateTotalPrice();
+        userIoManager.printTotalPrice(totalPrice);
     }
 }

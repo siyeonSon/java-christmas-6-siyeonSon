@@ -7,6 +7,8 @@ import static christmas.util.message.ViewMessages.INPUT_ORDER;
 import static christmas.util.message.ViewMessages.OUTPUT_EVENT_GUIDE;
 import static christmas.util.message.ViewMessages.OUTPUT_MENU;
 import static christmas.util.message.ViewMessages.OUTPUT_ORDER_GUIDE;
+import static christmas.util.message.ViewMessages.OUTPUT_PRICE;
+import static christmas.util.message.ViewMessages.OUTPUT_TOTAL_PRICE_GUIDE;
 import static christmas.util.message.ViewMessages.WELCOME;
 
 import christmas.model.menu.MenuItem;
@@ -45,6 +47,15 @@ public class OutputView {
 
     private void printMenu(MenuItem menuItem, Integer count) {
         println(String.format(OUTPUT_MENU, menuItem.getName(), count));
+    }
+
+    public void printTotalPriceGuide() {
+        printEmptyLine();
+        println(OUTPUT_TOTAL_PRICE_GUIDE);
+    }
+
+    public void printPrice(long price) {
+        println(String.format(OUTPUT_PRICE, price));
     }
 
     private void println(String message) {

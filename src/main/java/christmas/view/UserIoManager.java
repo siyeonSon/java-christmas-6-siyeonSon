@@ -35,6 +35,11 @@ public class UserIoManager {
         outputView.printOrder(order);
     }
 
+    public void printTotalPrice(long totalPrice) {
+        outputView.printTotalPriceGuide();
+        outputView.printPrice(totalPrice);
+    }
+
     private UserDate readDate(int year, int month) {
         outputView.printDateInputGuide();
         int date = inputView.readDate();
