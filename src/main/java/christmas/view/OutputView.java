@@ -5,8 +5,12 @@ import static christmas.util.message.ErrorMessages.PREFIX;
 import static christmas.util.message.ViewMessages.INPUT_DATE;
 import static christmas.util.message.ViewMessages.INPUT_ORDER;
 import static christmas.util.message.ViewMessages.OUTPUT_EVENT_GUIDE;
+import static christmas.util.message.ViewMessages.OUTPUT_MENU;
+import static christmas.util.message.ViewMessages.OUTPUT_ORDER_GUIDE;
 import static christmas.util.message.ViewMessages.WELCOME;
 
+import christmas.model.menu.MenuItem;
+import christmas.model.user.Order;
 import christmas.model.user.UserDate;
 
 public class OutputView {
@@ -27,14 +31,27 @@ public class OutputView {
     }
 
     public void printEventGuide(UserDate userDate) {
-        println(formatEventGuide(userDate));
+        println(String.format(OUTPUT_EVENT_GUIDE, userDate.getMonthValue(), userDate.getDayOfMonth()));
     }
 
-    private String formatEventGuide(UserDate userDate) {
-        return String.format(OUTPUT_EVENT_GUIDE, userDate.getMonthValue(), userDate.getDayOfMonth());
+    public void printOrderGuide() {
+        printEmptyLine();
+        println(OUTPUT_ORDER_GUIDE);
+    }
+
+    public void printOrder(Order order) {
+        order.getMenuItems().forEach(this::printMenu);
+    }
+
+    private void printMenu(MenuItem menuItem, Integer count) {
+        println(String.format(OUTPUT_MENU, menuItem.getName(), count));
     }
 
     private void println(String message) {
         System.out.println(message);
+    }
+
+    private void printEmptyLine() {
+        System.out.println();
     }
 }

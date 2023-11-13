@@ -38,4 +38,12 @@ public enum MenuItem {
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException(ORDER_INVALID_EXCEPTION));
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
 }

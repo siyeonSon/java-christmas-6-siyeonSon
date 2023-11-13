@@ -19,5 +19,6 @@ public class PromotionController {
         UserDate userDate = userIoManager.readDateUntilSuccess(CHRISTMAS_PROMOTION_YEAR, CHRISTMAS_PROMOTION_MONTH);
         Order order = userIoManager.readOrderUntilSuccess();
         userIoManager.printEventGuide(userDate);
+        userIoManager.printOrder(order);
     }
 }
