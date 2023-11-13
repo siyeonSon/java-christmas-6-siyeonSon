@@ -1,8 +1,5 @@
 package christmas.view;
 
-import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_PROMOTION_MONTH;
-import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_PROMOTION_YEAR;
-
 import christmas.model.user.UserDate;
 import christmas.model.user.Order;
 import christmas.util.Repeater;
@@ -20,18 +17,18 @@ public class UserIoManager {
         outputView.printWelcome();
     }
 
-    public UserDate readDateUntilSuccess() {
-        return Repeater.reTryUntilSuccess(this::readDate);
+    public UserDate readDateUntilSuccess(int year, int month) {
+        return Repeater.reTryUntilSuccess(() -> readDate(year, month));
     }
 
     public Order readOrderUntilSuccess() {
         return Repeater.reTryUntilSuccess(this::readOrder);
     }
 
-    private UserDate readDate() {
+    private UserDate readDate(int year, int month) {
         outputView.printDateInputGuide();
         int date = inputView.readDate();
-        return new UserDate(CHRISTMAS_PROMOTION_YEAR, CHRISTMAS_PROMOTION_MONTH, date);
+        return new UserDate(year, month, date);
     }
 
     private Order readOrder() {
