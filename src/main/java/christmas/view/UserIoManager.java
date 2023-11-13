@@ -1,5 +1,6 @@
 package christmas.view;
 
+import christmas.model.menu.Waiter;
 import christmas.model.user.UserDate;
 import christmas.model.user.Order;
 import christmas.util.Repeater;
@@ -29,6 +30,11 @@ public class UserIoManager {
         outputView.printEventGuide(userDate);
     }
 
+    public void printOrder(Order order) {
+        outputView.printOrderGuide();
+        outputView.printOrder(order);
+    }
+
     private UserDate readDate(int year, int month) {
         outputView.printDateInputGuide();
         int date = inputView.readDate();
@@ -38,6 +44,6 @@ public class UserIoManager {
     private Order readOrder() {
         outputView.printOrderInputGuide();
         String order = inputView.readOrder();
-        return new Order(order);
+        return Waiter.generateOrder(order);
     }
 }

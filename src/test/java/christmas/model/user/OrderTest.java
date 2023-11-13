@@ -1,49 +1,5 @@
 package christmas.model.user;
 
-import static christmas.util.message.ErrorMessages.ORDER_INVALID_EXCEPTION;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-
 class OrderTest {
-    @ParameterizedTest
-    @ValueSource(strings = "김치찌개-2,레드와인-1,초코케이크-1")
-    void 메뉴판에_없는_메뉴를_포함하는_경우_예외를_발생시킨다(String order) {
-        assertThatThrownBy(() -> new Order(order))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ORDER_INVALID_EXCEPTION);
-    }
 
-    @ParameterizedTest
-    @ValueSource(strings = {"해산물파스타-0", "초코케이크-23"})
-    void 메뉴의_개수가_1_이상_20_이하_숫자가_아닌_경우_예외를_발생시킨다(String order) {
-        assertThatThrownBy(() -> new Order(order))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ORDER_INVALID_EXCEPTION);
-    }
-
-    @ParameterizedTest
-    @ValueSource(strings = "해산물파스타-2,레드와인-1,초코케이크-1,해산물파스타-3")
-    void 중복_메뉴를_입력한_경우_예외를_발생시킨다(String order) {
-        assertThatThrownBy(() -> new Order(order))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ORDER_INVALID_EXCEPTION);
-    }
-
-    @ParameterizedTest
-    @ValueSource(strings = "해산물파스타-2,레드와인-1,초코케이크-19")
-    void 메뉴의_총_개수가_20개를_초과하는_경우_예외를_발생시킨다(String order) {
-        assertThatThrownBy(() -> new Order(order))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ORDER_INVALID_EXCEPTION);
-    }
-
-    @ParameterizedTest
-    @ValueSource(strings = {"해산물파스타- 2", "해산물 파스타 - 2", "해산물파스타 - 2"})
-    void 메뉴_형식이_예시와_다른_경우_예외를_발생시킨다(String order) {
-        assertThatThrownBy(() -> new Order(order))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ORDER_INVALID_EXCEPTION);
-    }
 }
