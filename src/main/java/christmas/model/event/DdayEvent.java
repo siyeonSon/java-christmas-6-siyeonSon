@@ -1,7 +1,6 @@
 package christmas.model.event;
 
 import christmas.model.date.PromotionPeriod;
-import christmas.model.user.UserDate;
 import christmas.model.user.User;
 
 public class DdayEvent extends EventDecorator {
@@ -17,14 +16,18 @@ public class DdayEvent extends EventDecorator {
     @Override
     public long benefit() {
         if (isValidatePromotion()) {
-            int dayOfUserDate = userDate.getDayOfMonth();
-            int startDayOfPromotionPeriod = promotionPeriod.getStartDate().getDayOfMonth();
-            return baseDiscount + dailyDiscount * (dayOfUserDate - startDayOfPromotionPeriod);
-        };
+            return calculateDiscount();
+        }
         return 0L;
     }
 
     private boolean isValidatePromotion() {
         return userDate.isBetween(promotionPeriod.getStartDate(), promotionPeriod.getEndDate());
+    }
+
+    private long calculateDiscount() {
+        int dayOfUserDate = userDate.getDayOfMonth();
+        int startDayOfPromotionPeriod = promotionPeriod.getStartDate().getDayOfMonth();
+        return baseDiscount + dailyDiscount * (dayOfUserDate - startDayOfPromotionPeriod);
     }
 }
