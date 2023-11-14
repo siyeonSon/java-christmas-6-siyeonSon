@@ -9,4 +9,5 @@ public class ChristmasPromotionConstant {
     public static final long CHRISTMAS_D_DAY_EVENT_BASE_DISCOUNT = -1000;
     public static final long CHRISTMAS_D_DAY_EVENT_DAILY_DISCOUNT = -100;
     public static final long WEEK_EVENT_DISCOUNT = -2023;
+    public static final long SPECIAL_EVENT_DISCOUNT = -1000;
 }
