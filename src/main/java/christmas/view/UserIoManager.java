@@ -1,5 +1,6 @@
 package christmas.view;
 
+import christmas.model.menu.MenuItem;
 import christmas.model.menu.Waiter;
 import christmas.model.user.UserDate;
 import christmas.model.user.UserOrder;
@@ -30,9 +31,9 @@ public class UserIoManager {
         outputView.printEventGuide(userDate);
     }
 
-    public void printGiftMenuItem(String menu, int count) {
+    public void printGiftMenuItem(MenuItem menuItem, int count) {
         outputView.printGiftMenuItemGuide();
-        outputView.printGiftMenuItem(menu, count);
+        outputView.printGiftMenuItem(menuItem, count);
     }
 
     public void printOrder(UserOrder userOrder) {
@@ -43,6 +44,19 @@ public class UserIoManager {
     public void printTotalPrice(long totalPrice) {
         outputView.printTotalPriceGuide();
         outputView.printPrice(totalPrice);
+    }
+
+    public void printNone() {
+        outputView.printNone();
+    }
+
+    public void printEventAmount(long dday, long weekend, long weekday, long special, long gift) {
+        outputView.printEventAmountGuide();
+        outputView.printChristmasDdayEvent(dday);
+        outputView.printWeekendEvent(weekend);
+        outputView.printWeekdayEvent(weekday);
+        outputView.printSpecialEvent(special);
+        outputView.printGiftEvent(gift);
     }
 
     private UserDate readDate(int year, int month) {

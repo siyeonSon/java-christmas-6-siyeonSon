@@ -4,13 +4,20 @@ import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_PROM
 import static christmas.util.message.ErrorMessages.PREFIX;
 import static christmas.util.message.ViewMessages.INPUT_DATE;
 import static christmas.util.message.ViewMessages.INPUT_ORDER;
+import static christmas.util.message.ViewMessages.OUTPUT_CHRISTMAS_D_DAY_EVENT;
+import static christmas.util.message.ViewMessages.OUTPUT_EVENT_AMOUNT_GUIDE;
 import static christmas.util.message.ViewMessages.OUTPUT_EVENT_GUIDE;
+import static christmas.util.message.ViewMessages.OUTPUT_GIFT_EVENT;
 import static christmas.util.message.ViewMessages.OUTPUT_GIFT_MENU_ITEM;
 import static christmas.util.message.ViewMessages.OUTPUT_GIFT_MENU_ITEM_GUIDE;
 import static christmas.util.message.ViewMessages.OUTPUT_MENU;
+import static christmas.util.message.ViewMessages.OUTPUT_NONE;
 import static christmas.util.message.ViewMessages.OUTPUT_ORDER_GUIDE;
 import static christmas.util.message.ViewMessages.OUTPUT_PRICE;
+import static christmas.util.message.ViewMessages.OUTPUT_SPECIAL_EVENT;
 import static christmas.util.message.ViewMessages.OUTPUT_TOTAL_PRICE_GUIDE;
+import static christmas.util.message.ViewMessages.OUTPUT_WEEKDAY_EVENT;
+import static christmas.util.message.ViewMessages.OUTPUT_WEEKEND_EVENT;
 import static christmas.util.message.ViewMessages.WELCOME;
 
 import christmas.model.menu.MenuItem;
@@ -65,8 +72,51 @@ public class OutputView {
         println(OUTPUT_GIFT_MENU_ITEM_GUIDE);
     }
 
-    public void printGiftMenuItem(String menu, int count) {
-        println(String.format(OUTPUT_GIFT_MENU_ITEM, menu, count));
+    public void printGiftMenuItem(MenuItem menuItem, int count) {
+        println(String.format(OUTPUT_GIFT_MENU_ITEM, menuItem.getName(), count));
+    }
+
+    public void printEventAmountGuide() {
+        printEmptyLine();
+        println(OUTPUT_EVENT_AMOUNT_GUIDE);
+    }
+
+    public void printChristmasDdayEvent(long benefit) {
+        if (isNotZero(benefit)) {
+            println(String.format(OUTPUT_CHRISTMAS_D_DAY_EVENT, benefit));
+        }
+    }
+
+    public void printWeekendEvent(long benefit) {
+        if (isNotZero(benefit)) {
+            println(String.format(OUTPUT_WEEKEND_EVENT, benefit));
+        }
+    }
+
+    public void printWeekdayEvent(long benefit) {
+        if (isNotZero(benefit)) {
+            println(String.format(OUTPUT_WEEKDAY_EVENT, benefit));
+        }
+    }
+
+    public void printSpecialEvent(long benefit) {
+        if (isNotZero(benefit)) {
+            println(String.format(OUTPUT_SPECIAL_EVENT, benefit));
+        }
+    }
+
+    public void printGiftEvent(long benefit) {
+        if (isNotZero(benefit)) {
+            println(String.format(OUTPUT_GIFT_EVENT, benefit));
+        }
+    }
+
+    public void printNone() {
+        println(OUTPUT_NONE);
+    }
+
+    private boolean isNotZero(long benefit) {
+        return benefit != 0;
     }
 
     private void println(String message) {
