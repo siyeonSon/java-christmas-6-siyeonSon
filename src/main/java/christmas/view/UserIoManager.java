@@ -30,6 +30,11 @@ public class UserIoManager {
         outputView.printEventGuide(userDate);
     }
 
+    public void printGiftMenuItem(String menu, int count) {
+        outputView.printGiftMenuItemGuide();
+        outputView.printGiftMenuItem(menu, count);
+    }
+
     public void printOrder(UserOrder userOrder) {
         outputView.printOrderGuide();
         outputView.printOrder(userOrder);

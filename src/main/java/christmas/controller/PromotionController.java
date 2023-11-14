@@ -2,6 +2,8 @@ package christmas.controller;
 
 import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_PROMOTION_MONTH;
 import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_PROMOTION_YEAR;
+import static christmas.model.constant.ChristmasPromotionConstant.GIFT_EVENT_MENU_ITEM_NAME;
+import static christmas.model.constant.ChristmasPromotionConstant.GIFT_EVENT_MENU_ITEM_AMOUNT;
 
 import christmas.model.event.Badge;
 import christmas.model.event.EventManager;
@@ -25,6 +27,8 @@ public class PromotionController {
         userIoManager.printEventGuide(userDate);
         userIoManager.printOrder(userOrder);
         long totalPrice = userOrder.getTotalPrice();
+        userIoManager.printTotalPrice(totalPrice);
+        userIoManager.printGiftMenuItem(GIFT_EVENT_MENU_ITEM_NAME, GIFT_EVENT_MENU_ITEM_AMOUNT);
 
         long ddayEventDiscount = eventManager.applyDdayEvent(userDate, userOrder);
         long weekdayEventDiscount = eventManager.applyWeekdayEvent(userDate, userOrder);
@@ -33,6 +37,5 @@ public class PromotionController {
         long giftEventDiscount = eventManager.applyGiftEvent(userDate, userOrder);
         String eventBadge = eventManager.getEventBadge(totalPrice);
 
-        userIoManager.printTotalPrice(totalPrice);
     }
 }

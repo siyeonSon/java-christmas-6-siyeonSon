@@ -5,6 +5,8 @@ import static christmas.util.message.ErrorMessages.PREFIX;
 import static christmas.util.message.ViewMessages.INPUT_DATE;
 import static christmas.util.message.ViewMessages.INPUT_ORDER;
 import static christmas.util.message.ViewMessages.OUTPUT_EVENT_GUIDE;
+import static christmas.util.message.ViewMessages.OUTPUT_GIFT_MENU_ITEM;
+import static christmas.util.message.ViewMessages.OUTPUT_GIFT_MENU_ITEM_GUIDE;
 import static christmas.util.message.ViewMessages.OUTPUT_MENU;
 import static christmas.util.message.ViewMessages.OUTPUT_ORDER_GUIDE;
 import static christmas.util.message.ViewMessages.OUTPUT_PRICE;
@@ -56,6 +58,15 @@ public class OutputView {
 
     public void printPrice(long price) {
         println(String.format(OUTPUT_PRICE, price));
+    }
+
+    public void printGiftMenuItemGuide() {
+        printEmptyLine();
+        println(OUTPUT_GIFT_MENU_ITEM_GUIDE);
+    }
+
+    public void printGiftMenuItem(String menu, int count) {
+        println(String.format(OUTPUT_GIFT_MENU_ITEM, menu, count));
     }
 
     private void println(String message) {
