@@ -20,6 +20,10 @@ public class UserOrder {
                 .sum();
     }
 
+    public boolean isExceed(long standard) {
+        return totalPrice >= standard;
+    }
+
     private long calculateTotalPrice() {
         return menuItems.entrySet().stream()
                 .mapToLong(entry -> (long) entry.getKey().getPrice() * entry.getValue())
