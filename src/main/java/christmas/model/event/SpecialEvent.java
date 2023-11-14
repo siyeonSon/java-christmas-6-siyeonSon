@@ -5,16 +5,19 @@ import static christmas.model.menu.MenuCategory.MAIN;
 
 import christmas.model.date.PromotionPeriod;
 import christmas.model.menu.MenuCategory;
-import christmas.model.user.User;
+import christmas.model.user.UserDate;
+import christmas.model.user.UserOrder;
 import java.time.LocalDate;
 import java.util.List;
 
-public class SpecialEvent extends EventDecorator {
+public class SpecialEvent extends Event {
     private final List<LocalDate> promotionDates;
     private final long discount;
 
-    public SpecialEvent(User user, PromotionPeriod promotionPeriod, List<LocalDate> promotionDates, long discount) {
-        super(user, promotionPeriod);
+    public SpecialEvent(UserDate userDate, UserOrder userOrder, PromotionPeriod promotionPeriod, List<LocalDate> promotionDates, long discount) {
+        this.userDate = userDate;
+        this.userOrder = userOrder;
+        this.promotionPeriod = promotionPeriod;
         this.discount = discount;
         this.promotionDates = promotionDates;
     }

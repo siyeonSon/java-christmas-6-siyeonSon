@@ -1,14 +1,17 @@
 package christmas.model.event;
 
 import christmas.model.date.PromotionPeriod;
-import christmas.model.user.User;
+import christmas.model.user.UserDate;
+import christmas.model.user.UserOrder;
 
-public class DdayEvent extends EventDecorator {
+public class DdayEvent extends Event {
     private final long baseDiscount;
     private final long dailyDiscount;
 
-    public DdayEvent(User user, PromotionPeriod promotionPeriod, long baseDiscount, long dailyDiscount) {
-        super(user, promotionPeriod);
+    public DdayEvent(UserDate userDate, UserOrder userOrder, PromotionPeriod promotionPeriod, long baseDiscount, long dailyDiscount) {
+        this.userDate = userDate;
+        this.userOrder = userOrder;
+        this.promotionPeriod = promotionPeriod;
         this.baseDiscount = baseDiscount;
         this.dailyDiscount = dailyDiscount;
     }

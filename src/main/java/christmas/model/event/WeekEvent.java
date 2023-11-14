@@ -5,13 +5,15 @@ import static christmas.model.menu.MenuCategory.MAIN;
 
 import christmas.model.date.PromotionPeriod;
 import christmas.model.menu.MenuCategory;
-import christmas.model.user.User;
+import christmas.model.user.UserDate;
+import christmas.model.user.UserOrder;
 
-public class WeekEvent extends EventDecorator {
+public class WeekEvent extends Event {
     private final long discount;
 
-    public WeekEvent(User user, PromotionPeriod promotionPeriod, long discount) {
-        super(user, promotionPeriod);
+    public WeekEvent(UserDate userDate, UserOrder userOrder, PromotionPeriod promotionPeriod, long discount) {
+        this.userDate = userDate;
+        this.userOrder = userOrder;
         this.discount = discount;
     }
 
