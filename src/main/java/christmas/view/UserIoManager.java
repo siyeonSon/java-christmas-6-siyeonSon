@@ -2,7 +2,7 @@ package christmas.view;
 
 import christmas.model.menu.Waiter;
 import christmas.model.user.UserDate;
-import christmas.model.user.Order;
+import christmas.model.user.UserOrder;
 import christmas.util.Repeater;
 
 public class UserIoManager {
@@ -22,7 +22,7 @@ public class UserIoManager {
         return Repeater.reTryUntilSuccess(() -> readDate(year, month));
     }
 
-    public Order readOrderUntilSuccess() {
+    public UserOrder readOrderUntilSuccess() {
         return Repeater.reTryUntilSuccess(this::readOrder);
     }
 
@@ -30,9 +30,9 @@ public class UserIoManager {
         outputView.printEventGuide(userDate);
     }
 
-    public void printOrder(Order order) {
+    public void printOrder(UserOrder userOrder) {
         outputView.printOrderGuide();
-        outputView.printOrder(order);
+        outputView.printOrder(userOrder);
     }
 
     public void printTotalPrice(long totalPrice) {
@@ -46,7 +46,7 @@ public class UserIoManager {
         return new UserDate(year, month, date);
     }
 
-    private Order readOrder() {
+    private UserOrder readOrder() {
         outputView.printOrderInputGuide();
         String order = inputView.readOrder();
         return Waiter.generateOrder(order);

@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
 
-class OrderTest {
+class UserOrderTest {
     @Test
     void 할인_전_총주문_금액을_계산한다() {
         Map<MenuItem, Integer> menuItems = new HashMap<>();
@@ -18,8 +18,8 @@ class OrderTest {
         menuItems.put(RED_WINE, 1);
         menuItems.put(CHOCOLATE_CAKE, 1);
 
-        Order order = new Order(menuItems);
+        UserOrder userOrder = new UserOrder(menuItems);
 
-        assertThat(order.calculateTotalPrice()).isEqualTo(145000L);
+        assertThat(userOrder.getTotalPrice()).isEqualTo(145000L);
     }
 }

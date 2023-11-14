@@ -18,9 +18,9 @@ public class DdayEvent extends EventDecorator {
     public long event() {
         if (isValidatePromotion(userDate)) {
             long benefit = calculateBenefit();
-            return order.getTotalPrice() - benefit;
+            return userOrder.getTotalPrice() - benefit;
         };
-        return order.getTotalPrice();
+        return userOrder.getTotalPrice();
     }
 
     private long calculateBenefit() {

@@ -2,7 +2,7 @@ package christmas.model.menu;
 
 import static christmas.util.message.ErrorMessages.ORDER_INVALID_EXCEPTION;
 
-import christmas.model.user.Order;
+import christmas.model.user.UserOrder;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -14,10 +14,10 @@ public class Waiter {
     private static final int MIN_ORDER_QUANTITY = 1;
     private static final int MAX_ORDER_QUANTITY = 20;
 
-    public static Order generateOrder(String order) {
+    public static UserOrder generateOrder(String order) {
         Map<MenuItem, Integer> menuItems = generateMenuItems(order);
         validateTotalQuantity(menuItems);
-        return new Order(menuItems);
+        return new UserOrder(menuItems);
     }
 
     private static Map<MenuItem, Integer> generateMenuItems(String order) {

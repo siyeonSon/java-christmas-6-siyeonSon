@@ -2,22 +2,22 @@ package christmas.model.user;
 
 public class User {
     protected UserDate userDate;
-    protected Order order;
+    protected UserOrder userOrder;
 
-    public User(UserDate userDate, Order order) {
+    public User(UserDate userDate, UserOrder userOrder) {
         this.userDate = userDate;
-        this.order = order;
+        this.userOrder = userOrder;
     }
 
     public long event() {
-        return order.getTotalPrice();
+        return userOrder.getTotalPrice();
     }
 
     public UserDate getUserDate() {
         return userDate;
     }
 
-    public Order getOrder() {
-        return order;
+    public UserOrder getOrder() {
+        return userOrder;
     }
 }

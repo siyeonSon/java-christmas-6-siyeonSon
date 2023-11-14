@@ -11,7 +11,7 @@ import christmas.model.date.PromotionPeriod;
 import christmas.model.event.DdayEvent;
 import christmas.model.user.User;
 import christmas.model.user.UserDate;
-import christmas.model.user.Order;
+import christmas.model.user.UserOrder;
 import christmas.view.UserIoManager;
 import java.time.LocalDate;
 
@@ -25,12 +25,12 @@ public class PromotionController {
     public void run() {
         userIoManager.printWelcome();
         UserDate userDate = userIoManager.readDateUntilSuccess(CHRISTMAS_PROMOTION_YEAR, CHRISTMAS_PROMOTION_MONTH);
-        Order order = userIoManager.readOrderUntilSuccess();
+        UserOrder userOrder = userIoManager.readOrderUntilSuccess();
         userIoManager.printEventGuide(userDate);
-        userIoManager.printOrder(order);
-        long totalPrice = order.getTotalPrice();
+        userIoManager.printOrder(userOrder);
+        long totalPrice = userOrder.getTotalPrice();
 
-        User user = new User(userDate, order);
+        User user = new User(userDate, userOrder);
         PromotionPeriod ddayPromotionPeriod = new PromotionPeriod(
                 LocalDate.of(CHRISTMAS_PROMOTION_YEAR, CHRISTMAS_PROMOTION_MONTH, CHRISTMAS_PROMOTION_START_DATE),
                 LocalDate.of(CHRISTMAS_PROMOTION_YEAR, CHRISTMAS_PROMOTION_MONTH, CHRISTMAS_D_DAY_DATE)

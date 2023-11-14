@@ -12,7 +12,7 @@ import static christmas.util.message.ViewMessages.OUTPUT_TOTAL_PRICE_GUIDE;
 import static christmas.util.message.ViewMessages.WELCOME;
 
 import christmas.model.menu.MenuItem;
-import christmas.model.user.Order;
+import christmas.model.user.UserOrder;
 import christmas.model.user.UserDate;
 
 public class OutputView {
@@ -41,8 +41,8 @@ public class OutputView {
         println(OUTPUT_ORDER_GUIDE);
     }
 
-    public void printOrder(Order order) {
-        order.getMenuItems().forEach(this::printMenu);
+    public void printOrder(UserOrder userOrder) {
+        userOrder.getMenuItems().forEach(this::printMenu);
     }
 
     private void printMenu(MenuItem menuItem, Integer count) {
