@@ -1,6 +1,9 @@
 package christmas.model.user;
 
 import static christmas.util.message.ErrorMessages.DATE_INVALID_EXCEPTION;
+import static java.time.DayOfWeek.FRIDAY;
+import static java.time.DayOfWeek.SATURDAY;
+import static java.time.DayOfWeek.SUNDAY;
 
 import java.time.DateTimeException;
 import java.time.DayOfWeek;
@@ -25,8 +28,8 @@ public class UserDate {
         return date.getDayOfMonth();
     }
 
-    public DayOfWeek getDayOfWeek() {
-        return date.getDayOfWeek();
+    public boolean isWeekend() {
+        return date.getDayOfWeek() == FRIDAY || date.getDayOfWeek() == SATURDAY;
     }
 
     private LocalDate parseToDate(int year, int month, int date) {
