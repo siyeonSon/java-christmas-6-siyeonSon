@@ -1,6 +1,5 @@
 package christmas.model.event;
 
-import static christmas.model.menu.MenuCategory.DESSERT;
 import static christmas.model.menu.MenuCategory.MAIN;
 
 import christmas.model.date.PromotionPeriod;
@@ -8,10 +7,10 @@ import christmas.model.menu.MenuCategory;
 import christmas.model.user.UserDate;
 import christmas.model.user.UserOrder;
 
-public class WeekEvent extends Event {
+public class WeekendEvent extends Event {
     private final long discount;
 
-    public WeekEvent(UserDate userDate, UserOrder userOrder, PromotionPeriod promotionPeriod, long discount) {
+    public WeekendEvent(UserDate userDate, UserOrder userOrder, PromotionPeriod promotionPeriod, long discount) {
         this.userDate = userDate;
         this.userOrder = userOrder;
         this.discount = discount;
@@ -33,7 +32,7 @@ public class WeekEvent extends Event {
         if (userDate.isWeekend()) {
             return calculateDiscountByCategory(MAIN);
         }
-        return calculateDiscountByCategory(DESSERT);
+        return 0L;
     }
 
     private long calculateDiscountByCategory(MenuCategory menuCategory) {
