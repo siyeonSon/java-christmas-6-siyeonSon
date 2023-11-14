@@ -7,6 +7,8 @@ import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_PROM
 import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_PROMOTION_MONTH;
 import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_PROMOTION_START_DATE;
 import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_PROMOTION_YEAR;
+import static christmas.model.constant.ChristmasPromotionConstant.GIFT_EVENT_MENU_ITEM;
+import static christmas.model.constant.ChristmasPromotionConstant.GIFT_EVENT_STANDARD_AMOUNT;
 import static christmas.model.constant.ChristmasPromotionConstant.SPECIAL_EVENT_DAYS;
 import static christmas.model.constant.ChristmasPromotionConstant.SPECIAL_EVENT_DISCOUNT;
 import static christmas.model.constant.ChristmasPromotionConstant.WEEK_EVENT_DISCOUNT;
@@ -41,8 +43,8 @@ public class EventManager {
     }
 
     public long applyGiftEvent(UserDate userDate, UserOrder userOrder) {
-        Event ddayEvent = new DdayEvent(userDate, userOrder, getPromotionPeriod(),
-                CHRISTMAS_D_DAY_EVENT_BASE_DISCOUNT, CHRISTMAS_D_DAY_EVENT_DAILY_DISCOUNT);
+        Event ddayEvent = new GiftEvent(userDate, userOrder, getPromotionPeriod(),
+                GIFT_EVENT_STANDARD_AMOUNT, -GIFT_EVENT_MENU_ITEM.getPrice());
         return ddayEvent.benefit();
     }
 

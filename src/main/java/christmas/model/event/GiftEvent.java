@@ -32,8 +32,4 @@ public class GiftEvent extends Event {
     private boolean isExceedStandard() {
         return userOrder.isExceed(discount);
     }
-
-    private long calculateDiscountByCategory(MenuCategory menuCategory) {
-        return userOrder.countMenuItemsByCategory(menuCategory) * discount;
-    }
 }

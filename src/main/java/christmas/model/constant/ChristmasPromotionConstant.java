@@ -14,6 +14,7 @@ public class ChristmasPromotionConstant {
     public static final long WEEK_EVENT_DISCOUNT = -2023;
     public static final long SPECIAL_EVENT_DISCOUNT = -1000;
     public static final List<Integer> SPECIAL_EVENT_DAYS = List.of(3, 7, 10, 17, 24, 25, 31);
-    public static final String GIFT_EVENT_MENU_ITEM_NAME = MenuItem.CHAMPAGNE.getName();
+    public static final long GIFT_EVENT_STANDARD_AMOUNT = 120000;
+    public static final MenuItem GIFT_EVENT_MENU_ITEM = MenuItem.CHAMPAGNE;
     public static final int GIFT_EVENT_MENU_ITEM_AMOUNT = 1;
 }
