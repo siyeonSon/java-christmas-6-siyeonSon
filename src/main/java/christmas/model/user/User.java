@@ -9,8 +9,8 @@ public class User {
         this.userOrder = userOrder;
     }
 
-    public long event() {
-        return userOrder.getTotalPrice();
+    public long benefit() {
+        return 0L;
     }
 
     public UserDate getUserDate() {

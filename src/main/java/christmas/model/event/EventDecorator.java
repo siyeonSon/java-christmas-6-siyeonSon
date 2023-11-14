@@ -11,5 +11,5 @@ public abstract class EventDecorator extends User {
         this.promotionPeriod = promotionPeriod;
     }
 
-    public abstract long event();
+    public abstract long benefit();
 }

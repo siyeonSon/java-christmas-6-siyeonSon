@@ -15,18 +15,13 @@ public class DdayEvent extends EventDecorator {
     }
 
     @Override
-    public long event() {
+    public long benefit() {
         if (isValidatePromotion(userDate)) {
-            long benefit = calculateBenefit();
-            return userOrder.getTotalPrice() - benefit;
+            int dayOfUserDate = userDate.getDayOfMonth();
+            int startDayOfPromotionPeriod = promotionPeriod.getStartDate().getDayOfMonth();
+            return baseDiscount + dailyDiscount * (dayOfUserDate - startDayOfPromotionPeriod);
         };
-        return userOrder.getTotalPrice();
-    }
-
-    private long calculateBenefit() {
-        int dayOfUserDate = userDate.getDayOfMonth();
-        int startDayOfPromotionPeriod = promotionPeriod.getStartDate().getDayOfMonth();
-        return baseDiscount + dailyDiscount * (dayOfUserDate - startDayOfPromotionPeriod);
+        return 0L;
     }
 
     private boolean isValidatePromotion(UserDate userDate) {
