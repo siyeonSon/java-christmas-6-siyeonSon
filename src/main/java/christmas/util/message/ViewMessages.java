@@ -20,4 +20,5 @@ public class ViewMessages {
     public static final String OUTPUT_NONE = "없음";
     public static final String OUTPUT_TOTAL_BENEFIT_GUIDE = "<총혜택 금액>";
     public static final String OUTPUT_TOTAL_BENEFIT = "-%,d원";
+    public static final String OUTPUT_FINAL_PRICE_GUIDE = "<할인 후 예상 결제 금액>";
 }

@@ -64,6 +64,11 @@ public class UserIoManager {
         outputView.printBenefit(totalBenefit);
     }
 
+    public void printFinalPrice(long finalPrice) {
+        outputView.printFinalPriceGuide();
+        outputView.printPrice(finalPrice);
+    }
+
     private UserDate readDate(int year, int month) {
         outputView.printDateInputGuide();
         int date = inputView.readDate();

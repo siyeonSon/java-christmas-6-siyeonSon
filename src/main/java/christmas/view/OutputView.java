@@ -127,6 +127,11 @@ public class OutputView {
         println(String.format(OUTPUT_TOTAL_BENEFIT, totalBenefit));
     }
 
+    public void printFinalPriceGuide() {
+        printEmptyLine();
+        println(OUTPUT_FINAL_PRICE_GUIDE);
+    }
+
     private boolean isNotZero(long benefit) {
         return benefit != 0;
     }
