@@ -12,11 +12,12 @@ public class ViewMessages {
     public static final String OUTPUT_GIFT_MENU_ITEM_GUIDE = "<증정 메뉴>";
     public static final String OUTPUT_GIFT_MENU_ITEM = "%s %d개";
     public static final String OUTPUT_EVENT_AMOUNT_GUIDE = "<혜택 내역>";
-    public static final String OUTPUT_CHRISTMAS_D_DAY_EVENT = "크리스마스 디데이 할인: %,d원";
-    public static final String OUTPUT_WEEKEND_EVENT = "평일 할인: %,d원";
-    public static final String OUTPUT_WEEKDAY_EVENT = "주말 할인: %,d원";
-    public static final String OUTPUT_SPECIAL_EVENT = "특별 할인: %,d원";
-    public static final String OUTPUT_GIFT_EVENT = "증정 이벤트: %,d원";
+    public static final String OUTPUT_CHRISTMAS_D_DAY_EVENT = "크리스마스 디데이 할인: -%,d원";
+    public static final String OUTPUT_WEEKEND_EVENT = "평일 할인: -%,d원";
+    public static final String OUTPUT_WEEKDAY_EVENT = "주말 할인: -%,d원";
+    public static final String OUTPUT_SPECIAL_EVENT = "특별 할인: -%,d원";
+    public static final String OUTPUT_GIFT_EVENT = "증정 이벤트: -%,d원";
     public static final String OUTPUT_NONE = "없음";
     public static final String OUTPUT_TOTAL_BENEFIT_GUIDE = "<총혜택 금액>";
+    public static final String OUTPUT_TOTAL_BENEFIT = "-%,d원";
 }

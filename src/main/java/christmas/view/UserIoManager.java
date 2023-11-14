@@ -61,7 +61,7 @@ public class UserIoManager {
 
     public void printTotalBenefit(long totalBenefit) {
         outputView.printTotalBenefitGuide();
-        outputView.printPrice(totalBenefit);
+        outputView.printBenefit(totalBenefit);
     }
 
     private UserDate readDate(int year, int month) {

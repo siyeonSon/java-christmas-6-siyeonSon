@@ -7,6 +7,7 @@ import static christmas.util.message.ViewMessages.INPUT_ORDER;
 import static christmas.util.message.ViewMessages.OUTPUT_CHRISTMAS_D_DAY_EVENT;
 import static christmas.util.message.ViewMessages.OUTPUT_EVENT_AMOUNT_GUIDE;
 import static christmas.util.message.ViewMessages.OUTPUT_EVENT_GUIDE;
+import static christmas.util.message.ViewMessages.OUTPUT_FINAL_PRICE_GUIDE;
 import static christmas.util.message.ViewMessages.OUTPUT_GIFT_EVENT;
 import static christmas.util.message.ViewMessages.OUTPUT_GIFT_MENU_ITEM;
 import static christmas.util.message.ViewMessages.OUTPUT_GIFT_MENU_ITEM_GUIDE;
@@ -15,6 +16,7 @@ import static christmas.util.message.ViewMessages.OUTPUT_NONE;
 import static christmas.util.message.ViewMessages.OUTPUT_ORDER_GUIDE;
 import static christmas.util.message.ViewMessages.OUTPUT_PRICE;
 import static christmas.util.message.ViewMessages.OUTPUT_SPECIAL_EVENT;
+import static christmas.util.message.ViewMessages.OUTPUT_TOTAL_BENEFIT;
 import static christmas.util.message.ViewMessages.OUTPUT_TOTAL_BENEFIT_GUIDE;
 import static christmas.util.message.ViewMessages.OUTPUT_TOTAL_PRICE_GUIDE;
 import static christmas.util.message.ViewMessages.OUTPUT_WEEKDAY_EVENT;
@@ -121,6 +123,9 @@ public class OutputView {
         println(OUTPUT_TOTAL_BENEFIT_GUIDE);
     }
 
+    public void printBenefit(long totalBenefit) {
+        println(String.format(OUTPUT_TOTAL_BENEFIT, totalBenefit));
+    }
 
     private boolean isNotZero(long benefit) {
         return benefit != 0;

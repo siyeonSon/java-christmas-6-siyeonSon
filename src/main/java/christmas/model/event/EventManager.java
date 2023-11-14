@@ -44,7 +44,7 @@ public class EventManager {
 
     public long applyGiftEvent(UserDate userDate, UserOrder userOrder) {
         Event ddayEvent = new GiftEvent(userDate, userOrder, getPromotionPeriod(),
-                GIFT_EVENT_STANDARD_AMOUNT, -GIFT_EVENT_MENU_ITEM.getPrice());
+                GIFT_EVENT_STANDARD_AMOUNT, GIFT_EVENT_MENU_ITEM.getPrice());
         return ddayEvent.benefit();
     }
 
