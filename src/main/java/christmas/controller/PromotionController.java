@@ -1,25 +1,21 @@
 package christmas.controller;
 
-import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_D_DAY_DATE;
-import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_D_DAY_EVENT_BASE_DISCOUNT;
-import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_D_DAY_EVENT_DAILY_DISCOUNT;
 import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_PROMOTION_MONTH;
-import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_PROMOTION_START_DATE;
 import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_PROMOTION_YEAR;
 
-import christmas.model.date.PromotionPeriod;
-import christmas.model.event.DdayEvent;
-import christmas.model.user.User;
+import christmas.model.event.Badge;
+import christmas.model.event.EventManager;
 import christmas.model.user.UserDate;
 import christmas.model.user.UserOrder;
 import christmas.view.UserIoManager;
-import java.time.LocalDate;
 
 public class PromotionController {
     private final UserIoManager userIoManager;
+    private final EventManager eventManager;
 
-    public PromotionController(UserIoManager userIoManager) {
+    public PromotionController(UserIoManager userIoManager, EventManager eventManager) {
         this.userIoManager = userIoManager;
+        this.eventManager = eventManager;
     }
 
     public void run() {
@@ -30,12 +26,12 @@ public class PromotionController {
         userIoManager.printOrder(userOrder);
         long totalPrice = userOrder.getTotalPrice();
 
-        User user = new User(userDate, userOrder);
-        PromotionPeriod ddayPromotionPeriod = new PromotionPeriod(
-                LocalDate.of(CHRISTMAS_PROMOTION_YEAR, CHRISTMAS_PROMOTION_MONTH, CHRISTMAS_PROMOTION_START_DATE),
-                LocalDate.of(CHRISTMAS_PROMOTION_YEAR, CHRISTMAS_PROMOTION_MONTH, CHRISTMAS_D_DAY_DATE)
-        );
-        user = new DdayEvent(user, ddayPromotionPeriod, CHRISTMAS_D_DAY_EVENT_BASE_DISCOUNT, CHRISTMAS_D_DAY_EVENT_DAILY_DISCOUNT);
+        long ddayEventDiscount = eventManager.applyDdayEvent(userDate, userOrder);
+        long weekdayEventDiscount = eventManager.applyWeekdayEvent(userDate, userOrder);
+        long weekendEventDiscount = eventManager.applyWeekendEvent(userDate, userOrder);
+        long specialEventDiscount = eventManager.applySpecialEvent(userDate, userOrder);
+        long giftEventDiscount = eventManager.applyGiftEvent(userDate, userOrder);
+        String eventBadge = eventManager.getEventBadge(totalPrice);
 
         userIoManager.printTotalPrice(totalPrice);
     }
