@@ -13,6 +13,7 @@ public class WeekendEvent extends Event {
     public WeekendEvent(UserDate userDate, UserOrder userOrder, PromotionPeriod promotionPeriod, long discount) {
         this.userDate = userDate;
         this.userOrder = userOrder;
+        this.promotionPeriod = promotionPeriod;
         this.discount = discount;
     }
 
