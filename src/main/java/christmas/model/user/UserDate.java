@@ -13,6 +13,10 @@ public class UserDate {
         this.date = parseToDate(year, month, date);
     }
 
+    public boolean isBetween(LocalDate startDate, LocalDate endDate) {
+        return !date.isBefore(startDate) && !date.isAfter(endDate);
+    }
+
     public int getMonthValue() {
         return date.getMonthValue();
     }
