@@ -6,7 +6,6 @@ import static christmas.model.menu.MenuCategory.MAIN;
 import christmas.model.date.PromotionPeriod;
 import christmas.model.menu.MenuCategory;
 import christmas.model.user.User;
-import christmas.model.user.UserDate;
 
 public class WeekEvent extends EventDecorator {
     private final long discount;
@@ -18,13 +17,13 @@ public class WeekEvent extends EventDecorator {
 
     @Override
     public long benefit() {
-        if (isValidatePromotion(userDate)) {
+        if (isValidatePromotion()) {
             return calculateDiscount();
         }
         return 0L;
     }
 
-    private boolean isValidatePromotion(UserDate userDate) {
+    private boolean isValidatePromotion() {
         return userDate.isBetween(promotionPeriod.getStartDate(), promotionPeriod.getEndDate());
     }
 

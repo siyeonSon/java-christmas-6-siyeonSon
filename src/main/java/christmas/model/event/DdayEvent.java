@@ -16,7 +16,7 @@ public class DdayEvent extends EventDecorator {
 
     @Override
     public long benefit() {
-        if (isValidatePromotion(userDate)) {
+        if (isValidatePromotion()) {
             int dayOfUserDate = userDate.getDayOfMonth();
             int startDayOfPromotionPeriod = promotionPeriod.getStartDate().getDayOfMonth();
             return baseDiscount + dailyDiscount * (dayOfUserDate - startDayOfPromotionPeriod);
@@ -24,7 +24,7 @@ public class DdayEvent extends EventDecorator {
         return 0L;
     }
 
-    private boolean isValidatePromotion(UserDate userDate) {
+    private boolean isValidatePromotion() {
         return userDate.isBetween(promotionPeriod.getStartDate(), promotionPeriod.getEndDate());
     }
 }
