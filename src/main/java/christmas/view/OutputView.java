@@ -15,6 +15,7 @@ import static christmas.util.message.ViewMessages.OUTPUT_NONE;
 import static christmas.util.message.ViewMessages.OUTPUT_ORDER_GUIDE;
 import static christmas.util.message.ViewMessages.OUTPUT_PRICE;
 import static christmas.util.message.ViewMessages.OUTPUT_SPECIAL_EVENT;
+import static christmas.util.message.ViewMessages.OUTPUT_TOTAL_BENEFIT_GUIDE;
 import static christmas.util.message.ViewMessages.OUTPUT_TOTAL_PRICE_GUIDE;
 import static christmas.util.message.ViewMessages.OUTPUT_WEEKDAY_EVENT;
 import static christmas.util.message.ViewMessages.OUTPUT_WEEKEND_EVENT;
@@ -114,6 +115,12 @@ public class OutputView {
     public void printNone() {
         println(OUTPUT_NONE);
     }
+
+    public void printTotalBenefitGuide() {
+        printEmptyLine();
+        println(OUTPUT_TOTAL_BENEFIT_GUIDE);
+    }
+
 
     private boolean isNotZero(long benefit) {
         return benefit != 0;

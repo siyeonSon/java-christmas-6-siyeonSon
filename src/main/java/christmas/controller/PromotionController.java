@@ -38,6 +38,7 @@ public class PromotionController {
         long totalBenefit = calculateTotalBenefit(ddayBenefit, weekdayBenefit, weekendBenefit, specialBenefit, giftBenefit);
         printEventAmount(totalBenefit, ddayBenefit, weekdayBenefit, weekendBenefit, specialBenefit, giftBenefit);
 
+        userIoManager.printTotalBenefit(totalBenefit);
         String eventBadge = eventManager.getEventBadge(totalPrice);
 
     }

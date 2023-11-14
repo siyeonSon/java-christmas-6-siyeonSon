@@ -18,4 +18,5 @@ public class ViewMessages {
     public static final String OUTPUT_SPECIAL_EVENT = "특별 할인: %,d원";
     public static final String OUTPUT_GIFT_EVENT = "증정 이벤트: %,d원";
     public static final String OUTPUT_NONE = "없음";
+    public static final String OUTPUT_TOTAL_BENEFIT_GUIDE = "<총혜택 금액>";
 }
