@@ -48,7 +48,7 @@ public class EventManager {
         return ddayEvent.benefit();
     }
 
-    public String getEventBadge(long totalPrice) {
+    public Badge getEventBadge(long totalPrice) {
         return Badge.getEventBadge(totalPrice);
     }
 

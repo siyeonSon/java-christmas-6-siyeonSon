@@ -5,6 +5,7 @@ import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_PROM
 import static christmas.model.constant.ChristmasPromotionConstant.GIFT_EVENT_MENU_ITEM;
 import static christmas.model.constant.ChristmasPromotionConstant.GIFT_EVENT_MENU_ITEM_AMOUNT;
 
+import christmas.model.event.Badge;
 import christmas.model.event.EventManager;
 import christmas.model.user.UserDate;
 import christmas.model.user.UserOrder;
@@ -43,8 +44,8 @@ public class PromotionController {
         long finalPrice = totalPrice - totalBenefit + giftBenefit;
         userIoManager.printFinalPrice(finalPrice);
 
-        String eventBadge = eventManager.getEventBadge(totalPrice);
-
+        Badge badge = eventManager.getEventBadge(totalPrice);
+        userIoManager.printBadge(badge);
     }
 
     private void printEventAmount(long totalBenefit, long ddayBenefit, long weekdayBenefit, long weekendBenefit, long specialBenefit, long giftBenefit) {

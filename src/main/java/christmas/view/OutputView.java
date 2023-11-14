@@ -6,6 +6,7 @@ import static christmas.util.message.ViewMessages.INPUT_DATE;
 import static christmas.util.message.ViewMessages.INPUT_ORDER;
 import static christmas.util.message.ViewMessages.OUTPUT_CHRISTMAS_D_DAY_EVENT;
 import static christmas.util.message.ViewMessages.OUTPUT_EVENT_AMOUNT_GUIDE;
+import static christmas.util.message.ViewMessages.OUTPUT_BADGE_GUIDE;
 import static christmas.util.message.ViewMessages.OUTPUT_EVENT_GUIDE;
 import static christmas.util.message.ViewMessages.OUTPUT_FINAL_PRICE_GUIDE;
 import static christmas.util.message.ViewMessages.OUTPUT_GIFT_EVENT;
@@ -23,6 +24,7 @@ import static christmas.util.message.ViewMessages.OUTPUT_WEEKDAY_EVENT;
 import static christmas.util.message.ViewMessages.OUTPUT_WEEKEND_EVENT;
 import static christmas.util.message.ViewMessages.WELCOME;
 
+import christmas.model.event.Badge;
 import christmas.model.menu.MenuItem;
 import christmas.model.user.UserOrder;
 import christmas.model.user.UserDate;
@@ -130,6 +132,15 @@ public class OutputView {
     public void printFinalPriceGuide() {
         printEmptyLine();
         println(OUTPUT_FINAL_PRICE_GUIDE);
+    }
+
+    public void printBadgeGuide() {
+        printEmptyLine();
+        println(OUTPUT_BADGE_GUIDE);
+    }
+
+    public void printBadge(Badge badge) {
+        println(badge.getName());
     }
 
     private boolean isNotZero(long benefit) {

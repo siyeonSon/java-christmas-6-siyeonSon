@@ -1,5 +1,6 @@
 package christmas.view;
 
+import christmas.model.event.Badge;
 import christmas.model.menu.MenuItem;
 import christmas.model.menu.Waiter;
 import christmas.model.user.UserDate;
@@ -67,6 +68,11 @@ public class UserIoManager {
     public void printFinalPrice(long finalPrice) {
         outputView.printFinalPriceGuide();
         outputView.printPrice(finalPrice);
+    }
+
+    public void printBadge(Badge badge) {
+        outputView.printBadgeGuide();
+        outputView.printBadge(badge);
     }
 
     private UserDate readDate(int year, int month) {
