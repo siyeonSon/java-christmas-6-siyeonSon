@@ -1,5 +1,6 @@
 package christmas.model.user;
 
+import christmas.model.menu.MenuCategory;
 import christmas.model.menu.MenuItem;
 import java.util.Map;
 
@@ -10,6 +11,13 @@ public class UserOrder {
     public UserOrder(Map<MenuItem, Integer> menuItems) {
         this.menuItems = menuItems;
         this.totalPrice = calculateTotalPrice();
+    }
+
+    public int countMenuItemsByCategory(MenuCategory menuCategory) {
+        return menuItems.entrySet().stream()
+                .filter(entry -> entry.getKey().getMenuCategory() == menuCategory)
+                .mapToInt(Map.Entry::getValue)
+                .sum();
     }
 
     private long calculateTotalPrice() {
