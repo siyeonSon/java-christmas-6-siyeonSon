@@ -1,6 +1,7 @@
 package christmas.view;
 
 import christmas.model.event.Badge;
+import christmas.model.event.Benefits;
 import christmas.model.menu.MenuItem;
 import christmas.model.menu.Waiter;
 import christmas.model.user.UserDate;
@@ -32,9 +33,9 @@ public class UserIoManager {
         outputView.printEventGuide(userDate);
     }
 
-    public void printGiftMenuItem(long benefit, MenuItem menuItem, int count) {
+    public void printGiftMenuItem(Benefits benefits, MenuItem menuItem, int count) {
         outputView.printGiftMenuItemGuide();
-        outputView.printGiftMenuItem(benefit, menuItem, count);
+        outputView.printGiftMenuItem(benefits.getGiftBenefit(), menuItem, count);
     }
 
     public void printOrder(UserOrder userOrder) {
@@ -47,22 +48,22 @@ public class UserIoManager {
         outputView.printPrice(totalPrice);
     }
 
-    public void printEventAmount(long totalBenefit, long dday, long weekend, long weekday, long special, long gift) {
+    public void printEventAmount(Benefits benefits) {
         outputView.printEventAmountGuide();
-        if (totalBenefit == 0) {
+        if (benefits.getTotalBenefit() == 0) {
             outputView.printNone();
         } else {
-            outputView.printChristmasDdayEvent(dday);
-            outputView.printWeekendEvent(weekend);
-            outputView.printWeekdayEvent(weekday);
-            outputView.printSpecialEvent(special);
-            outputView.printGiftEvent(gift);
+            outputView.printChristmasDdayEvent(benefits.getDdayBenefit());
+            outputView.printWeekendEvent(benefits.getWeekendBenefit());
+            outputView.printWeekdayEvent(benefits.getWeekdayBenefit());
+            outputView.printSpecialEvent(benefits.getSpecialBenefit());
+            outputView.printGiftEvent(benefits.getGiftBenefit());
         }
     }
 
-    public void printTotalBenefit(long totalBenefit) {
+    public void printTotalBenefit(Benefits benefits) {
         outputView.printTotalBenefitGuide();
-        outputView.printBenefit(totalBenefit);
+        outputView.printBenefit(benefits.getTotalBenefit());
     }
 
     public void printFinalPrice(long finalPrice) {

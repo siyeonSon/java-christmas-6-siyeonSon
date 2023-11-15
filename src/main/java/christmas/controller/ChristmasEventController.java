@@ -6,6 +6,7 @@ import static christmas.util.constant.ChristmasEventConstant.GIFT_EVENT_MENU_ITE
 import static christmas.util.constant.ChristmasEventConstant.GIFT_EVENT_MENU_ITEM_AMOUNT;
 
 import christmas.model.event.Badge;
+import christmas.model.event.Benefits;
 import christmas.model.event.EventManager;
 import christmas.model.user.UserDate;
 import christmas.model.user.UserOrder;
@@ -28,27 +29,25 @@ public class ChristmasEventController {
         long totalPrice = userOrder.getTotalPrice();
         userIoManager.printTotalPrice(totalPrice);
         userIoManager.printEventGuide(userDate);
-        event(userDate, userOrder, totalPrice);
+        Benefits benefits = event(userDate, userOrder);
+        printResult(benefits, totalPrice);
     }
 
-    private void event(UserDate userDate, UserOrder userOrder, long totalPrice) {
+    private Benefits event(UserDate userDate, UserOrder userOrder) {
         long ddayBenefit = eventManager.applyDdayEvent(userDate, userOrder);
         long weekdayBenefit = eventManager.applyWeekdayEvent(userDate, userOrder);
         long weekendBenefit = eventManager.applyWeekendEvent(userDate, userOrder);
         long specialBenefit = eventManager.applySpecialEvent(userDate, userOrder);
         long giftBenefit = eventManager.applyGiftEvent(userDate, userOrder);
-        long totalBenefit = calculateTotalBenefit(ddayBenefit, weekdayBenefit, weekendBenefit, specialBenefit, giftBenefit);
-        Badge badge = eventManager.getEventBadge(totalBenefit);
-        long finalPrice = totalPrice - totalBenefit + giftBenefit;
-
-        userIoManager.printGiftMenuItem(giftBenefit, GIFT_EVENT_MENU_ITEM, GIFT_EVENT_MENU_ITEM_AMOUNT);
-        userIoManager.printEventAmount(totalBenefit, ddayBenefit, weekdayBenefit, weekendBenefit, specialBenefit, giftBenefit);
-        userIoManager.printTotalBenefit(totalBenefit);
-        userIoManager.printFinalPrice(finalPrice);
-        userIoManager.printBadge(badge);
+        return new Benefits(ddayBenefit, weekdayBenefit, weekendBenefit, specialBenefit, giftBenefit);
     }
 
-    private long calculateTotalBenefit(long ddayBenefit, long weekdayBenefit, long weekendBenefit, long specialBenefit, long giftBenefit) {
-        return ddayBenefit + weekdayBenefit + weekendBenefit + specialBenefit + giftBenefit;
+    private void printResult(Benefits benefits, long totalPrice) {
+        userIoManager.printGiftMenuItem(benefits, GIFT_EVENT_MENU_ITEM, GIFT_EVENT_MENU_ITEM_AMOUNT);
+        userIoManager.printEventAmount(benefits);
+        userIoManager.printTotalBenefit(benefits);
+        userIoManager.printFinalPrice(benefits.getFinalPrice(totalPrice));
+        Badge badge = eventManager.getEventBadge(benefits);
+        userIoManager.printBadge(badge);
     }
 }
