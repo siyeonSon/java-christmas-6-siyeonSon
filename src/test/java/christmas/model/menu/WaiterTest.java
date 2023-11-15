@@ -2,11 +2,18 @@ package christmas.model.menu;
 
 import static christmas.util.message.ErrorMessages.ORDER_INVALID_EXCEPTION;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class WaiterTest {
+    @ParameterizedTest
+    @ValueSource(strings = {"타파스-1,제로콜라-1", "티본스테이크-1,바비큐립-1,초코케이크-2,제로콜라-1"})
+    void 주문을_생성한다(String order) {
+        assertDoesNotThrow(() -> Waiter.generateOrder(order));
+    }
+
     @ParameterizedTest
     @ValueSource(strings = "김치찌개-2,레드와인-1,초코케이크-1")
     void 메뉴판에_없는_메뉴를_포함하는_경우_예외를_발생시킨다(String order) {
