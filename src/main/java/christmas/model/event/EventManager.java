@@ -48,9 +48,8 @@ public class EventManager {
         return ddayEvent.benefit();
     }
 
-    public Badge getEventBadge(UserOrder userOrder, long totalProfit) {
-        BadgeEvent badgeEvent = new BadgeEvent(userOrder, totalProfit, getPromotionPeriod());
-        return badgeEvent.findBadge();
+    public Badge getEventBadge(long totalBenefit) {
+        return Badge.getEventBadge(totalBenefit);
     }
 
     private EventPeriod getDdayPromotionPeriod() {

@@ -70,9 +70,9 @@ public class UserIoManager {
         outputView.printPrice(finalPrice);
     }
 
-    public void printBadge(long profit, Badge badge) {
+    public void printBadge(Badge badge) {
         outputView.printBadgeGuide();
-        outputView.printBadge(profit, badge);
+        outputView.printBadge(badge);
     }
 
     private UserDate readDate(int year, int month) {

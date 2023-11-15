@@ -143,12 +143,8 @@ public class OutputView {
         println(OUTPUT_BADGE_GUIDE);
     }
 
-    public void printBadge(long benefit, Badge badge) {
-        if (isNotZero(benefit)) {
-            println(badge.getName());
-        } else {
-            printNone();
-        }
+    public void printBadge(Badge badge) {
+        println(badge.getName());
     }
 
     private boolean isNotZero(long benefit) {

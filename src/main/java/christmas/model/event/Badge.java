@@ -16,9 +16,9 @@ public enum Badge {
         this.standard = standard;
     }
 
-    public static Badge getEventBadge(long price) {
+    public static Badge getEventBadge(long benefit) {
         return Arrays.stream(values())
-                .filter(badge -> price >= badge.standard)
+                .filter(badge -> benefit >= badge.standard)
                 .findFirst()
                 .orElse(NONE);
     }
