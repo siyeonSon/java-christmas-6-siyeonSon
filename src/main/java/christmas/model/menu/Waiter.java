@@ -1,5 +1,7 @@
 package christmas.model.menu;
 
+import static christmas.model.constant.ChristmasEventConstant.MAX_ORDER_QUANTITY;
+import static christmas.model.constant.ChristmasEventConstant.MIN_ORDER_QUANTITY;
 import static christmas.model.menu.MenuCategory.DRINK;
 import static christmas.util.message.ErrorMessages.ORDER_INVALID_EXCEPTION;
 
@@ -12,8 +14,6 @@ import java.util.Map;
 public class Waiter {
     private static final String ITEM_SEPARATOR = ",";
     private static final String QUANTITY_SEPARATOR = "-";
-    private static final int MIN_ORDER_QUANTITY = 1;
-    private static final int MAX_ORDER_QUANTITY = 20;
 
     public static UserOrder generateOrder(String order) {
         Map<MenuItem, Integer> menuItems = generateMenuItems(order);

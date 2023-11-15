@@ -9,6 +9,8 @@ public class ChristmasEventConstant {
     public static final int CHRISTMAS_PROMOTION_START_DATE = 1;
     public static final int CHRISTMAS_D_DAY_DATE = 25;
     public static final int CHRISTMAS_PROMOTION_END_DATE = 31;
+    public static final int MIN_ORDER_QUANTITY = 1;
+    public static final int MAX_ORDER_QUANTITY = 20;
     public static final long MIN_PRICE = 10000;
     public static final long CHRISTMAS_D_DAY_EVENT_BASE_DISCOUNT = 1000;
     public static final long CHRISTMAS_D_DAY_EVENT_DAILY_DISCOUNT = 100;
