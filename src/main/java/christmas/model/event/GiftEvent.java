@@ -26,6 +26,6 @@ public class GiftEvent extends Event {
 
     @Override
     protected boolean isValidPrice() {
-        return userOrder.isExceed(discount);
+        return userOrder.isExceed(standard);
     }
 }
