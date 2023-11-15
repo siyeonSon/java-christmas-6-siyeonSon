@@ -24,10 +24,6 @@ public class DdayEvent extends Event {
         return 0L;
     }
 
-    private boolean isValidatePromotion() {
-        return userDate.isBetween(promotionPeriod.getStartDate(), promotionPeriod.getEndDate());
-    }
-
     private long calculateDiscount() {
         int dayOfUserDate = userDate.getDayOfMonth();
         int startDayOfPromotionPeriod = promotionPeriod.getStartDate().getDayOfMonth();

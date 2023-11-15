@@ -25,10 +25,6 @@ public class WeekendEvent extends Event {
         return 0L;
     }
 
-    private boolean isValidatePromotion() {
-        return userDate.isBetween(promotionPeriod.getStartDate(), promotionPeriod.getEndDate());
-    }
-
     private long calculateDiscount() {
         if (userDate.isWeekend()) {
             return calculateDiscountByCategory(MAIN);

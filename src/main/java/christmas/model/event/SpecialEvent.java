@@ -26,10 +26,6 @@ public class SpecialEvent extends Event {
         return 0L;
     }
 
-    private boolean isValidatePromotion() {
-        return userDate.isBetween(promotionPeriod.getStartDate(), promotionPeriod.getEndDate());
-    }
-
     private boolean isSpecialPromotionDate() {
         return userDate.isBetween(promotionDates);
     }

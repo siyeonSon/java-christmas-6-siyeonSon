@@ -10,4 +10,8 @@ public abstract class Event {
     protected PromotionPeriod promotionPeriod;
 
     public abstract long benefit();
+
+    protected boolean isValidatePromotion() {
+        return userDate.isBetween(promotionPeriod.getStartDate(), promotionPeriod.getEndDate());
+    }
 }

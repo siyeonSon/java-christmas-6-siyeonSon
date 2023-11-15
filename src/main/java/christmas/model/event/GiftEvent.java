@@ -25,10 +25,6 @@ public class GiftEvent extends Event {
         return 0L;
     }
 
-    private boolean isValidatePromotion() {
-        return userDate.isBetween(promotionPeriod.getStartDate(), promotionPeriod.getEndDate());
-    }
-
     private boolean isExceedStandard() {
         return userOrder.isExceed(discount);
     }
