@@ -24,37 +24,28 @@ public class PromotionController {
         userIoManager.printWelcome();
         UserDate userDate = userIoManager.readDateUntilSuccess(CHRISTMAS_PROMOTION_YEAR, CHRISTMAS_PROMOTION_MONTH);
         UserOrder userOrder = userIoManager.readOrderUntilSuccess();
-        userIoManager.printEventGuide(userDate);
         userIoManager.printOrder(userOrder);
         long totalPrice = userOrder.getTotalPrice();
         userIoManager.printTotalPrice(totalPrice);
+        userIoManager.printEventGuide(userDate);
+        event(userDate, userOrder, totalPrice);
+    }
 
+    private void event(UserDate userDate, UserOrder userOrder, long totalPrice) {
         long ddayBenefit = eventManager.applyDdayEvent(userDate, userOrder);
         long weekdayBenefit = eventManager.applyWeekdayEvent(userDate, userOrder);
         long weekendBenefit = eventManager.applyWeekendEvent(userDate, userOrder);
         long specialBenefit = eventManager.applySpecialEvent(userDate, userOrder);
         long giftBenefit = eventManager.applyGiftEvent(userDate, userOrder);
         Badge badge = eventManager.getEventBadge(userDate, userOrder);
-
         long totalBenefit = calculateTotalBenefit(ddayBenefit, weekdayBenefit, weekendBenefit, specialBenefit, giftBenefit);
+        long finalPrice = totalPrice - totalBenefit + giftBenefit;
 
         userIoManager.printGiftMenuItem(giftBenefit, GIFT_EVENT_MENU_ITEM, GIFT_EVENT_MENU_ITEM_AMOUNT);
-        printEventAmount(totalBenefit, ddayBenefit, weekdayBenefit, weekendBenefit, specialBenefit, giftBenefit);
-
+        userIoManager.printEventAmount(totalBenefit, ddayBenefit, weekdayBenefit, weekendBenefit, specialBenefit, giftBenefit);
         userIoManager.printTotalBenefit(totalBenefit);
-
-        long finalPrice = totalPrice - totalBenefit + giftBenefit;
         userIoManager.printFinalPrice(finalPrice);
-
         userIoManager.printBadge(giftBenefit, badge);
-    }
-
-    private void printEventAmount(long totalBenefit, long ddayBenefit, long weekdayBenefit, long weekendBenefit, long specialBenefit, long giftBenefit) {
-        if (totalBenefit == 0) {
-            userIoManager.printNone();
-            return;
-        }
-        userIoManager.printEventAmount(ddayBenefit, weekdayBenefit, weekendBenefit, specialBenefit, giftBenefit);
     }
 
     private long calculateTotalBenefit(long ddayBenefit, long weekdayBenefit, long weekendBenefit, long specialBenefit, long giftBenefit) {

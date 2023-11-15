@@ -51,13 +51,17 @@ public class UserIoManager {
         outputView.printNone();
     }
 
-    public void printEventAmount(long dday, long weekend, long weekday, long special, long gift) {
+    public void printEventAmount(long totalBenefit, long dday, long weekend, long weekday, long special, long gift) {
         outputView.printEventAmountGuide();
-        outputView.printChristmasDdayEvent(dday);
-        outputView.printWeekendEvent(weekend);
-        outputView.printWeekdayEvent(weekday);
-        outputView.printSpecialEvent(special);
-        outputView.printGiftEvent(gift);
+        if (totalBenefit == 0) {
+            outputView.printNone();
+        } else {
+            outputView.printChristmasDdayEvent(dday);
+            outputView.printWeekendEvent(weekend);
+            outputView.printWeekdayEvent(weekday);
+            outputView.printSpecialEvent(special);
+            outputView.printGiftEvent(gift);
+        }
     }
 
     public void printTotalBenefit(long totalBenefit) {
