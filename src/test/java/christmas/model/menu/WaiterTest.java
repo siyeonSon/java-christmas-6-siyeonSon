@@ -46,4 +46,12 @@ class WaiterTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ORDER_INVALID_EXCEPTION);
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"제로콜라-2", "제로콜라-2,레드와인-1"})
+    void 음료만_주문할_경우_예외를_발생시킨다(String order) {
+        assertThatThrownBy(() -> Waiter.generateOrder(order))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ORDER_INVALID_EXCEPTION);
+    }
 }
