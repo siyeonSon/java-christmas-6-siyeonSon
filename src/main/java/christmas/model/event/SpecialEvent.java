@@ -20,7 +20,7 @@ public class SpecialEvent extends Event {
 
     @Override
     public long benefit() {
-        if (isValidatePromotion() && isSpecialPromotionDate()) {
+        if (isValidEventPeriod() && isValidPrice() && isSpecialPromotionDate()) {
             return discount;
         }
         return 0L;

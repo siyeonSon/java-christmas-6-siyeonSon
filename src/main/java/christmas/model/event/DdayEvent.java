@@ -18,7 +18,7 @@ public class DdayEvent extends Event {
 
     @Override
     public long benefit() {
-        if (isValidatePromotion()) {
+        if (isValidEventPeriod() && isValidPrice()) {
             return calculateDiscount();
         }
         return 0L;

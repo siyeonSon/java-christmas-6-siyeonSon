@@ -18,13 +18,14 @@ public class GiftEvent extends Event {
 
     @Override
     public long benefit() {
-        if (isValidatePromotion() && isExceedStandard()) {
+        if (isValidEventPeriod() && isValidPrice()) {
             return discount;
         }
         return 0L;
     }
 
-    private boolean isExceedStandard() {
+    @Override
+    protected boolean isValidPrice() {
         return userOrder.isExceed(discount);
     }
 }
