@@ -50,15 +50,7 @@ public class UserIoManager {
 
     public void printEventAmount(Benefits benefits) {
         outputView.printEventAmountGuide();
-        if (benefits.getTotalBenefit() == 0) {
-            outputView.printNone();
-        } else {
-            outputView.printChristmasDdayEvent(benefits.getDdayBenefit());
-            outputView.printWeekendEvent(benefits.getWeekendBenefit());
-            outputView.printWeekdayEvent(benefits.getWeekdayBenefit());
-            outputView.printSpecialEvent(benefits.getSpecialBenefit());
-            outputView.printGiftEvent(benefits.getGiftBenefit());
-        }
+        outputView.printEventAmount(benefits);
     }
 
     public void printTotalBenefit(Benefits benefits) {

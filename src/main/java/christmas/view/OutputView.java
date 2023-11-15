@@ -25,6 +25,7 @@ import static christmas.util.constant.ViewMessages.OUTPUT_WEEKEND_EVENT;
 import static christmas.util.constant.ViewMessages.WELCOME;
 
 import christmas.model.event.Badge;
+import christmas.model.event.Benefits;
 import christmas.model.menu.MenuItem;
 import christmas.model.user.UserOrder;
 import christmas.model.user.UserDate;
@@ -78,11 +79,14 @@ public class OutputView {
     }
 
     public void printGiftMenuItem(long benefit, MenuItem menuItem, int count) {
+        println(formatGiftMenuItem(benefit, menuItem, count));
+    }
+
+    private String formatGiftMenuItem(long benefit, MenuItem menuItem, int count) {
         if (isNotZero(benefit)) {
-            println(String.format(OUTPUT_GIFT_MENU_ITEM, menuItem.getName(), count));
-        } else {
-            printNone();
+            return String.format(OUTPUT_GIFT_MENU_ITEM, menuItem.getName(), count);
         }
+        return OUTPUT_NONE;
     }
 
     public void printEventAmountGuide() {
@@ -90,42 +94,65 @@ public class OutputView {
         println(OUTPUT_EVENT_AMOUNT_GUIDE);
     }
 
-    public void printChristmasDdayEvent(long benefit) {
-        if (isNotZero(benefit)) {
-            println(String.format(OUTPUT_CHRISTMAS_D_DAY_EVENT, -benefit));
+    public void printEventAmount(Benefits benefits) {
+        println(formatEventAmount(benefits));
+    }
+
+    private String formatEventAmount(Benefits benefits) {
+        if (isNotZero(benefits.getTotalBenefit())) {
+            StringBuilder output = new StringBuilder();
+            appendIfNotNull(output, formatChristmasDdayEvent(benefits.getDdayBenefit()));
+            appendIfNotNull(output, formatWeekendEvent(benefits.getWeekendBenefit()));
+            appendIfNotNull(output, formatWeekdayEvent(benefits.getWeekdayBenefit()));
+            appendIfNotNull(output, formatSpecialEvent(benefits.getSpecialBenefit()));
+            appendIfNotNull(output, formatGiftEvent(benefits.getGiftBenefit()));
+            return output.toString();
+        }
+        return OUTPUT_NONE + "\n";
+    }
+
+    private void appendIfNotNull(StringBuilder builder, String formattedEvent) {
+        if (formattedEvent != null) {
+            builder.append(formattedEvent).append("\n");
         }
     }
 
-    public void printWeekendEvent(long benefit) {
+    private String formatChristmasDdayEvent(long benefit) {
         if (isNotZero(benefit)) {
-            println(String.format(OUTPUT_WEEKEND_EVENT, -benefit));
+            return String.format(OUTPUT_CHRISTMAS_D_DAY_EVENT, -benefit);
         }
+        return null;
     }
 
-    public void printWeekdayEvent(long benefit) {
+    private String formatWeekendEvent(long benefit) {
         if (isNotZero(benefit)) {
-            println(String.format(OUTPUT_WEEKDAY_EVENT, -benefit));
+            return String.format(OUTPUT_WEEKEND_EVENT, -benefit);
         }
+        return null;
     }
 
-    public void printSpecialEvent(long benefit) {
+    private String formatWeekdayEvent(long benefit) {
         if (isNotZero(benefit)) {
-            println(String.format(OUTPUT_SPECIAL_EVENT, -benefit));
+            return String.format(OUTPUT_WEEKDAY_EVENT, -benefit);
         }
+        return null;
     }
 
-    public void printGiftEvent(long benefit) {
+    private String formatSpecialEvent(long benefit) {
         if (isNotZero(benefit)) {
-            println(String.format(OUTPUT_GIFT_EVENT, -benefit));
+            return String.format(OUTPUT_SPECIAL_EVENT, -benefit);
         }
+        return null;
     }
 
-    public void printNone() {
-        println(OUTPUT_NONE);
+    private String formatGiftEvent(long benefit) {
+        if (isNotZero(benefit)) {
+            return String.format(OUTPUT_GIFT_EVENT, -benefit);
+        }
+        return null;
     }
 
     public void printTotalBenefitGuide() {
-        printEmptyLine();
         println(OUTPUT_TOTAL_BENEFIT_GUIDE);
     }
 
