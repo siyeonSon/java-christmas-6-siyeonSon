@@ -92,31 +92,31 @@ public class OutputView {
 
     public void printChristmasDdayEvent(long benefit) {
         if (isNotZero(benefit)) {
-            println(String.format(OUTPUT_CHRISTMAS_D_DAY_EVENT, benefit));
+            println(String.format(OUTPUT_CHRISTMAS_D_DAY_EVENT, -benefit));
         }
     }
 
     public void printWeekendEvent(long benefit) {
         if (isNotZero(benefit)) {
-            println(String.format(OUTPUT_WEEKEND_EVENT, benefit));
+            println(String.format(OUTPUT_WEEKEND_EVENT, -benefit));
         }
     }
 
     public void printWeekdayEvent(long benefit) {
         if (isNotZero(benefit)) {
-            println(String.format(OUTPUT_WEEKDAY_EVENT, benefit));
+            println(String.format(OUTPUT_WEEKDAY_EVENT, -benefit));
         }
     }
 
     public void printSpecialEvent(long benefit) {
         if (isNotZero(benefit)) {
-            println(String.format(OUTPUT_SPECIAL_EVENT, benefit));
+            println(String.format(OUTPUT_SPECIAL_EVENT, -benefit));
         }
     }
 
     public void printGiftEvent(long benefit) {
         if (isNotZero(benefit)) {
-            println(String.format(OUTPUT_GIFT_EVENT, benefit));
+            println(String.format(OUTPUT_GIFT_EVENT, -benefit));
         }
     }
 
@@ -130,7 +130,7 @@ public class OutputView {
     }
 
     public void printBenefit(long totalBenefit) {
-        println(String.format(OUTPUT_TOTAL_BENEFIT, totalBenefit));
+        println(String.format(OUTPUT_TOTAL_BENEFIT, -totalBenefit));
     }
 
     public void printFinalPriceGuide() {
