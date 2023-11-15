@@ -3,10 +3,8 @@ package christmas.model.user;
 import static christmas.util.message.ErrorMessages.DATE_INVALID_EXCEPTION;
 import static java.time.DayOfWeek.FRIDAY;
 import static java.time.DayOfWeek.SATURDAY;
-import static java.time.DayOfWeek.SUNDAY;
 
 import java.time.DateTimeException;
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.List;
 
