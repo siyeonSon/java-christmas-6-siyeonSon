@@ -32,9 +32,9 @@ public class UserIoManager {
         outputView.printEventGuide(userDate);
     }
 
-    public void printGiftMenuItem(MenuItem menuItem, int count) {
+    public void printGiftMenuItem(long benefit, MenuItem menuItem, int count) {
         outputView.printGiftMenuItemGuide();
-        outputView.printGiftMenuItem(menuItem, count);
+        outputView.printGiftMenuItem(benefit, menuItem, count);
     }
 
     public void printOrder(UserOrder userOrder) {

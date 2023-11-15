@@ -28,7 +28,6 @@ public class PromotionController {
         userIoManager.printOrder(userOrder);
         long totalPrice = userOrder.getTotalPrice();
         userIoManager.printTotalPrice(totalPrice);
-        userIoManager.printGiftMenuItem(GIFT_EVENT_MENU_ITEM, GIFT_EVENT_MENU_ITEM_AMOUNT);
 
         long ddayBenefit = eventManager.applyDdayEvent(userDate, userOrder);
         long weekdayBenefit = eventManager.applyWeekdayEvent(userDate, userOrder);
@@ -37,6 +36,8 @@ public class PromotionController {
         long giftBenefit = eventManager.applyGiftEvent(userDate, userOrder);
 
         long totalBenefit = calculateTotalBenefit(ddayBenefit, weekdayBenefit, weekendBenefit, specialBenefit, giftBenefit);
+
+        userIoManager.printGiftMenuItem(giftBenefit, GIFT_EVENT_MENU_ITEM, GIFT_EVENT_MENU_ITEM_AMOUNT);
         printEventAmount(totalBenefit, ddayBenefit, weekdayBenefit, weekendBenefit, specialBenefit, giftBenefit);
 
         userIoManager.printTotalBenefit(totalBenefit);

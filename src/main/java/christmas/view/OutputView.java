@@ -77,8 +77,11 @@ public class OutputView {
         println(OUTPUT_GIFT_MENU_ITEM_GUIDE);
     }
 
-    public void printGiftMenuItem(MenuItem menuItem, int count) {
-        println(String.format(OUTPUT_GIFT_MENU_ITEM, menuItem.getName(), count));
+    public void printGiftMenuItem(long benefit, MenuItem menuItem, int count) {
+        if (isNotZero(benefit)) {
+            println(String.format(OUTPUT_GIFT_MENU_ITEM, menuItem.getName(), count));
+        }
+        printNone();
     }
 
     public void printEventAmountGuide() {
