@@ -1,7 +1,6 @@
 package christmas.model.event;
 
 import christmas.model.date.PromotionPeriod;
-import christmas.model.menu.MenuCategory;
 import christmas.model.user.UserDate;
 import christmas.model.user.UserOrder;
 
