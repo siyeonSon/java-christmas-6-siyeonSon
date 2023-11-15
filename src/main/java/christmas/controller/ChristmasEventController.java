@@ -37,8 +37,8 @@ public class ChristmasEventController {
         long weekendBenefit = eventManager.applyWeekendEvent(userDate, userOrder);
         long specialBenefit = eventManager.applySpecialEvent(userDate, userOrder);
         long giftBenefit = eventManager.applyGiftEvent(userDate, userOrder);
-        Badge badge = eventManager.getEventBadge(userDate, userOrder);
         long totalBenefit = calculateTotalBenefit(ddayBenefit, weekdayBenefit, weekendBenefit, specialBenefit, giftBenefit);
+        Badge badge = eventManager.getEventBadge(userOrder, totalBenefit);
         long finalPrice = totalPrice - totalBenefit + giftBenefit;
 
         userIoManager.printGiftMenuItem(giftBenefit, GIFT_EVENT_MENU_ITEM, GIFT_EVENT_MENU_ITEM_AMOUNT);

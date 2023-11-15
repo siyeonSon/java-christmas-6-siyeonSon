@@ -1,27 +1,30 @@
 package christmas.model.event;
 
+import static christmas.model.constant.ChristmasEventConstant.MIN_PRICE;
 import static christmas.model.event.Badge.NONE;
 
 import christmas.model.date.EventPeriod;
-import christmas.model.user.UserDate;
 import christmas.model.user.UserOrder;
 
-public class BadgeEvent extends Event {
-    public BadgeEvent(UserDate userDate, UserOrder userOrder, EventPeriod eventPeriod) {
-        this.userDate = userDate;
+public class BadgeEvent {
+    private UserOrder userOrder;
+    private long totalBenefit;
+    private EventPeriod eventPeriod;
+
+    public BadgeEvent(UserOrder userOrder, long totalBenefit, EventPeriod eventPeriod) {
         this.userOrder = userOrder;
+        this.totalBenefit = totalBenefit;
         this.eventPeriod = eventPeriod;
     }
 
     public Badge findBadge() {
-        if (isValidEventPeriod() && isValidPrice()) {
+        if (isValidPrice()) {
             return Badge.getEventBadge(userOrder.getTotalPrice());
         }
         return NONE;
     }
 
-    @Override
-    public long benefit() {
-        return 0L;
+    private boolean isValidPrice() {
+        return userOrder.isExceed(MIN_PRICE);
     }
 }
