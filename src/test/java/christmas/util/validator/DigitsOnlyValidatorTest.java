@@ -1,6 +1,6 @@
 package christmas.util.validator;
 
-import static christmas.util.message.ErrorMessages.NUMBER_FORMAT_EXCEPTION;
+import static christmas.util.message.ErrorMessages.DATE_INVALID_EXCEPTION;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
@@ -19,6 +19,6 @@ class DigitsOnlyValidatorTest {
     void 정수가_아닌_경우_예외를_발생시킨다(String value) {
         assertThatThrownBy(() -> DigitsOnlyValidator.validate(value))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(NUMBER_FORMAT_EXCEPTION);
+                .hasMessageContaining(DATE_INVALID_EXCEPTION);
     }
 }

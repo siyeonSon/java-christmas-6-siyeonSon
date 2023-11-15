@@ -1,6 +1,6 @@
 package christmas.util.validator;
 
-import static christmas.util.message.ErrorMessages.BLANK_EXCEPTION;
+import static christmas.util.message.ErrorMessages.DATE_INVALID_EXCEPTION;
 
 public final class BlankValidator {
     private BlankValidator() {
@@ -12,7 +12,7 @@ public final class BlankValidator {
 
     private static void validateBlank(String value) {
         if (isBlank(value)) {
-            throw new IllegalArgumentException(BLANK_EXCEPTION);
+            throw new IllegalArgumentException(DATE_INVALID_EXCEPTION);
         }
     }
 

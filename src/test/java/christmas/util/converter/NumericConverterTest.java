@@ -1,6 +1,6 @@
 package christmas.util.converter;
 
-import static christmas.util.message.ErrorMessages.NUMBER_FORMAT_EXCEPTION;
+import static christmas.util.message.ErrorMessages.DATE_INVALID_EXCEPTION;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,6 +19,6 @@ class NumericConverterTest {
     void 문자에서_숫자로_변환을_실패한다 (String value) {
         assertThatThrownBy(() -> NumericConverter.convert(value))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(NUMBER_FORMAT_EXCEPTION);
+                .hasMessageContaining(DATE_INVALID_EXCEPTION);
     }
 }

@@ -1,6 +1,6 @@
 package christmas.util.validator;
 
-import static christmas.util.message.ErrorMessages.BLANK_EXCEPTION;
+import static christmas.util.message.ErrorMessages.DATE_INVALID_EXCEPTION;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,6 +19,6 @@ class BlankValidatorTest {
     void 공백이_있다면_예외를_발생시킨다(String value) {
         assertThatThrownBy(() -> BlankValidator.validate(value))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(BLANK_EXCEPTION);
+                .hasMessageContaining(DATE_INVALID_EXCEPTION);
     }
 }

@@ -1,6 +1,6 @@
 package christmas.util.converter;
 
-import static christmas.util.message.ErrorMessages.NUMBER_FORMAT_EXCEPTION;
+import static christmas.util.message.ErrorMessages.DATE_INVALID_EXCEPTION;
 
 public final class NumericConverter {
     private NumericConverter() {
@@ -10,7 +10,7 @@ public final class NumericConverter {
         try {
             return Integer.parseInt(value);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(NUMBER_FORMAT_EXCEPTION);
+            throw new IllegalArgumentException(DATE_INVALID_EXCEPTION);
         }
     }
 }
