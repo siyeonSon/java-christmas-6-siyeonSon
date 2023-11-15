@@ -50,7 +50,7 @@ public class EventManager {
 
     public Badge getEventBadge(UserDate userDate, UserOrder userOrder) {
         BadgeEvent badgeEvent = new BadgeEvent(userDate, userOrder, getPromotionPeriod());
-        return badgeEvent.benefit();
+        return badgeEvent.findBadge();
     }
 
     private EventPeriod getDdayPromotionPeriod() {
