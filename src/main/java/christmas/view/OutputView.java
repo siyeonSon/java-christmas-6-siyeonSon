@@ -1,6 +1,6 @@
 package christmas.view;
 
-import static christmas.util.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_MONTH;
+import static christmas.util.constant.ChristmasEventConstant.CHRISTMAS_EVENT_MONTH;
 import static christmas.util.constant.ErrorMessages.PREFIX;
 import static christmas.util.constant.ViewMessages.INPUT_DATE;
 import static christmas.util.constant.ViewMessages.INPUT_ORDER;
@@ -40,7 +40,7 @@ public class OutputView {
     }
 
     public void printDateInputGuide() {
-        println(String.format(INPUT_DATE, CHRISTMAS_PROMOTION_MONTH));
+        println(String.format(INPUT_DATE, CHRISTMAS_EVENT_MONTH));
     }
 
     public void printOrderInputGuide() {

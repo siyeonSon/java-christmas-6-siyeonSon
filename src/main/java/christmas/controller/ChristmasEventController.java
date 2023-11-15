@@ -1,7 +1,7 @@
 package christmas.controller;
 
-import static christmas.util.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_MONTH;
-import static christmas.util.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_YEAR;
+import static christmas.util.constant.ChristmasEventConstant.CHRISTMAS_EVENT_MONTH;
+import static christmas.util.constant.ChristmasEventConstant.CHRISTMAS_EVENT_YEAR;
 import static christmas.util.constant.ChristmasEventConstant.GIFT_EVENT_MENU_ITEM;
 import static christmas.util.constant.ChristmasEventConstant.GIFT_EVENT_MENU_ITEM_AMOUNT;
 
@@ -23,7 +23,7 @@ public class ChristmasEventController {
 
     public void run() {
         userIoManager.printWelcome();
-        UserDate userDate = userIoManager.readDateUntilSuccess(CHRISTMAS_PROMOTION_YEAR, CHRISTMAS_PROMOTION_MONTH);
+        UserDate userDate = userIoManager.readDateUntilSuccess(CHRISTMAS_EVENT_YEAR, CHRISTMAS_EVENT_MONTH);
         UserOrder userOrder = userIoManager.readOrderUntilSuccess();
         userIoManager.printOrder(userOrder);
         long totalPrice = userOrder.getTotalPrice();

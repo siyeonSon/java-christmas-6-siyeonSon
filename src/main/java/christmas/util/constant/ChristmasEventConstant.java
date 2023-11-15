@@ -4,11 +4,11 @@ import christmas.model.menu.MenuItem;
 import java.util.List;
 
 public class ChristmasEventConstant {
-    public static final int CHRISTMAS_PROMOTION_YEAR = 2023;
-    public static final int CHRISTMAS_PROMOTION_MONTH = 12;
-    public static final int CHRISTMAS_PROMOTION_START_DATE = 1;
+    public static final int CHRISTMAS_EVENT_YEAR = 2023;
+    public static final int CHRISTMAS_EVENT_MONTH = 12;
+    public static final int CHRISTMAS_EVENT_START_DATE = 1;
     public static final int CHRISTMAS_D_DAY_DATE = 25;
-    public static final int CHRISTMAS_PROMOTION_END_DATE = 31;
+    public static final int CHRISTMAS_EVENT_END_DATE = 31;
     public static final int MIN_ORDER_QUANTITY = 1;
     public static final int MAX_ORDER_QUANTITY = 20;
     public static final long MIN_PRICE = 10000;

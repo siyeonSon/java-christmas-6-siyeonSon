@@ -1,9 +1,9 @@
 package christmas.model.event;
 
-import static christmas.util.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_END_DATE;
-import static christmas.util.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_MONTH;
-import static christmas.util.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_START_DATE;
-import static christmas.util.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_YEAR;
+import static christmas.util.constant.ChristmasEventConstant.CHRISTMAS_EVENT_END_DATE;
+import static christmas.util.constant.ChristmasEventConstant.CHRISTMAS_EVENT_MONTH;
+import static christmas.util.constant.ChristmasEventConstant.CHRISTMAS_EVENT_START_DATE;
+import static christmas.util.constant.ChristmasEventConstant.CHRISTMAS_EVENT_YEAR;
 import static christmas.util.constant.ChristmasEventConstant.SPECIAL_EVENT_DAYS;
 import static christmas.util.constant.ChristmasEventConstant.SPECIAL_EVENT_DISCOUNT;
 import static christmas.model.menu.MenuItem.BARBECUE_LIBS;
@@ -40,11 +40,11 @@ class SpecialEventTest {
         menuItems.put(ZERO_COKE, 1);
         userOrder = new UserOrder(menuItems);
         eventPeriod = new EventPeriod(
-                LocalDate.of(CHRISTMAS_PROMOTION_YEAR, CHRISTMAS_PROMOTION_MONTH, CHRISTMAS_PROMOTION_START_DATE),
-                LocalDate.of(CHRISTMAS_PROMOTION_YEAR, CHRISTMAS_PROMOTION_MONTH, CHRISTMAS_PROMOTION_END_DATE)
+                LocalDate.of(CHRISTMAS_EVENT_YEAR, CHRISTMAS_EVENT_MONTH, CHRISTMAS_EVENT_START_DATE),
+                LocalDate.of(CHRISTMAS_EVENT_YEAR, CHRISTMAS_EVENT_MONTH, CHRISTMAS_EVENT_END_DATE)
         );
         promotionDates = SPECIAL_EVENT_DAYS.stream()
-                .map(day -> LocalDate.of(CHRISTMAS_PROMOTION_YEAR, CHRISTMAS_PROMOTION_MONTH, day))
+                .map(day -> LocalDate.of(CHRISTMAS_EVENT_YEAR, CHRISTMAS_EVENT_MONTH, day))
                 .toList();
     }
 
