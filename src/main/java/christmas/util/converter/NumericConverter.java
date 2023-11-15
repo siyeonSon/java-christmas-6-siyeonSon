@@ -1,6 +1,6 @@
 package christmas.util.converter;
 
-import static christmas.util.message.ErrorMessages.DATE_INVALID_EXCEPTION;
+import static christmas.util.constant.ErrorMessages.DATE_INVALID_EXCEPTION;
 
 public final class NumericConverter {
     private NumericConverter() {

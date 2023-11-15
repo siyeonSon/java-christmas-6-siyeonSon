@@ -1,6 +1,6 @@
 package christmas.util.validator;
 
-import static christmas.util.message.ErrorMessages.DATE_INVALID_EXCEPTION;
+import static christmas.util.constant.ErrorMessages.DATE_INVALID_EXCEPTION;
 
 import java.util.regex.Pattern;
 

@@ -1,4 +1,4 @@
-package christmas.util.message;
+package christmas.util.constant;
 
 public class ErrorMessages {
     public static final String PREFIX = "[ERROR] ";

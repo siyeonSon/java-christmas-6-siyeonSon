@@ -1,9 +1,9 @@
 package christmas.model.menu;
 
-import static christmas.model.constant.ChristmasEventConstant.MAX_ORDER_QUANTITY;
-import static christmas.model.constant.ChristmasEventConstant.MIN_ORDER_QUANTITY;
+import static christmas.util.constant.ChristmasEventConstant.MAX_ORDER_QUANTITY;
+import static christmas.util.constant.ChristmasEventConstant.MIN_ORDER_QUANTITY;
 import static christmas.model.menu.MenuCategory.DRINK;
-import static christmas.util.message.ErrorMessages.ORDER_INVALID_EXCEPTION;
+import static christmas.util.constant.ErrorMessages.ORDER_INVALID_EXCEPTION;
 
 import christmas.model.user.UserOrder;
 

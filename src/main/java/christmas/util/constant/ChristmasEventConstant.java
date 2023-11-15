@@ -1,4 +1,4 @@
-package christmas.model.constant;
+package christmas.util.constant;
 
 import christmas.model.menu.MenuItem;
 import java.util.List;

@@ -1,6 +1,6 @@
 package christmas.model.user;
 
-import static christmas.util.message.ErrorMessages.DATE_INVALID_EXCEPTION;
+import static christmas.util.constant.ErrorMessages.DATE_INVALID_EXCEPTION;
 import static java.time.DayOfWeek.FRIDAY;
 import static java.time.DayOfWeek.SATURDAY;
 

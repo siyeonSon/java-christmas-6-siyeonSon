@@ -1,11 +1,11 @@
 package christmas.model.event;
 
-import static christmas.model.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_END_DATE;
-import static christmas.model.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_MONTH;
-import static christmas.model.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_START_DATE;
-import static christmas.model.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_YEAR;
-import static christmas.model.constant.ChristmasEventConstant.GIFT_EVENT_STANDARD_AMOUNT;
-import static christmas.model.constant.ChristmasEventConstant.WEEK_EVENT_DISCOUNT;
+import static christmas.util.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_END_DATE;
+import static christmas.util.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_MONTH;
+import static christmas.util.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_START_DATE;
+import static christmas.util.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_YEAR;
+import static christmas.util.constant.ChristmasEventConstant.GIFT_EVENT_STANDARD_AMOUNT;
+import static christmas.util.constant.ChristmasEventConstant.WEEK_EVENT_DISCOUNT;
 import static christmas.model.menu.MenuItem.BARBECUE_LIBS;
 import static christmas.model.menu.MenuItem.CHOCOLATE_CAKE;
 import static christmas.model.menu.MenuItem.ICE_CREAM;

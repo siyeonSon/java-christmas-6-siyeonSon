@@ -4,7 +4,7 @@ import static christmas.model.menu.MenuCategory.APPETIZER;
 import static christmas.model.menu.MenuCategory.DESSERT;
 import static christmas.model.menu.MenuCategory.DRINK;
 import static christmas.model.menu.MenuCategory.MAIN;
-import static christmas.util.message.ErrorMessages.ORDER_INVALID_EXCEPTION;
+import static christmas.util.constant.ErrorMessages.ORDER_INVALID_EXCEPTION;
 
 import java.util.Arrays;
 

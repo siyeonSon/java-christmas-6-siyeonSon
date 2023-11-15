@@ -1,6 +1,6 @@
 package christmas.model.menu;
 
-import static christmas.util.message.ErrorMessages.ORDER_INVALID_EXCEPTION;
+import static christmas.util.constant.ErrorMessages.ORDER_INVALID_EXCEPTION;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.params.ParameterizedTest;

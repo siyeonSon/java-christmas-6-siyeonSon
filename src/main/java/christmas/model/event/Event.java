@@ -1,6 +1,6 @@
 package christmas.model.event;
 
-import static christmas.model.constant.ChristmasEventConstant.MIN_PRICE;
+import static christmas.util.constant.ChristmasEventConstant.MIN_PRICE;
 
 import christmas.model.date.EventPeriod;
 import christmas.model.user.UserDate;

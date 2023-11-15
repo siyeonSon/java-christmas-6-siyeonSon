@@ -1,9 +1,9 @@
 package christmas.controller;
 
-import static christmas.model.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_MONTH;
-import static christmas.model.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_YEAR;
-import static christmas.model.constant.ChristmasEventConstant.GIFT_EVENT_MENU_ITEM;
-import static christmas.model.constant.ChristmasEventConstant.GIFT_EVENT_MENU_ITEM_AMOUNT;
+import static christmas.util.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_MONTH;
+import static christmas.util.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_YEAR;
+import static christmas.util.constant.ChristmasEventConstant.GIFT_EVENT_MENU_ITEM;
+import static christmas.util.constant.ChristmasEventConstant.GIFT_EVENT_MENU_ITEM_AMOUNT;
 
 import christmas.model.event.Badge;
 import christmas.model.event.EventManager;
