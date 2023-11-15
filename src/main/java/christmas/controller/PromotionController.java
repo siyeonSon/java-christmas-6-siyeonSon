@@ -34,6 +34,7 @@ public class PromotionController {
         long weekendBenefit = eventManager.applyWeekendEvent(userDate, userOrder);
         long specialBenefit = eventManager.applySpecialEvent(userDate, userOrder);
         long giftBenefit = eventManager.applyGiftEvent(userDate, userOrder);
+        Badge badge = eventManager.getEventBadge(userDate, userOrder);
 
         long totalBenefit = calculateTotalBenefit(ddayBenefit, weekdayBenefit, weekendBenefit, specialBenefit, giftBenefit);
 
@@ -45,8 +46,7 @@ public class PromotionController {
         long finalPrice = totalPrice - totalBenefit + giftBenefit;
         userIoManager.printFinalPrice(finalPrice);
 
-        Badge badge = eventManager.getEventBadge(totalPrice);
-        userIoManager.printBadge(badge);
+        userIoManager.printBadge(giftBenefit, badge);
     }
 
     private void printEventAmount(long totalBenefit, long ddayBenefit, long weekdayBenefit, long weekendBenefit, long specialBenefit, long giftBenefit) {

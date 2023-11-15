@@ -80,8 +80,9 @@ public class OutputView {
     public void printGiftMenuItem(long benefit, MenuItem menuItem, int count) {
         if (isNotZero(benefit)) {
             println(String.format(OUTPUT_GIFT_MENU_ITEM, menuItem.getName(), count));
+        } else {
+            printNone();
         }
-        printNone();
     }
 
     public void printEventAmountGuide() {
@@ -142,8 +143,12 @@ public class OutputView {
         println(OUTPUT_BADGE_GUIDE);
     }
 
-    public void printBadge(Badge badge) {
-        println(badge.getName());
+    public void printBadge(long benefit, Badge badge) {
+        if (isNotZero(benefit)) {
+            println(badge.getName());
+        } else {
+            printNone();
+        }
     }
 
     private boolean isNotZero(long benefit) {

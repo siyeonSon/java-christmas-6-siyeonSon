@@ -7,7 +7,6 @@ import static christmas.model.menu.MenuItem.RED_WINE;
 import static christmas.model.menu.MenuItem.SEAFOOD_PASTA;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import christmas.model.menu.MenuCategory;
 import christmas.model.menu.MenuItem;
 import java.util.HashMap;
 import java.util.Map;
