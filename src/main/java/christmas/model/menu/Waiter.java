@@ -1,5 +1,6 @@
 package christmas.model.menu;
 
+import static christmas.model.menu.MenuCategory.DRINK;
 import static christmas.util.message.ErrorMessages.ORDER_INVALID_EXCEPTION;
 
 import christmas.model.user.UserOrder;
@@ -16,7 +17,7 @@ public class Waiter {
 
     public static UserOrder generateOrder(String order) {
         Map<MenuItem, Integer> menuItems = generateMenuItems(order);
-        validateTotalQuantity(menuItems);
+        validate(menuItems);
         return new UserOrder(menuItems);
     }
 
@@ -54,6 +55,11 @@ public class Waiter {
         }
     }
 
+    private static void validate(Map<MenuItem, Integer> menuItems) {
+        validateTotalQuantity(menuItems);
+        validateEntirelyDrink(menuItems);
+    }
+
     private static void validateQuantity(int quantity) {
         if (isInvalidQuantity(quantity)) {
             throw new IllegalArgumentException(ORDER_INVALID_EXCEPTION);
@@ -74,5 +80,16 @@ public class Waiter {
         return menuItems.values().stream()
                 .mapToInt(Integer::intValue)
                 .sum();
+    }
+
+    private static void validateEntirelyDrink(Map<MenuItem, Integer> menuItems) {
+        if (isEntirelyDrink(menuItems)) {
+            throw new IllegalArgumentException(ORDER_INVALID_EXCEPTION);
+        }
+    }
+
+    private static boolean isEntirelyDrink(Map<MenuItem, Integer> menuItems) {
+        return menuItems.keySet().stream()
+                .allMatch(item -> item.getMenuCategory() == DRINK);
     }
 }
