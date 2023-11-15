@@ -5,7 +5,7 @@ import christmas.model.menu.MenuItem;
 import christmas.model.menu.Waiter;
 import christmas.model.user.UserDate;
 import christmas.model.user.UserOrder;
-import christmas.util.Repeater;
+import christmas.util.repeater.Repeater;
 
 public class UserIoManager {
     private final InputView inputView;
@@ -45,10 +45,6 @@ public class UserIoManager {
     public void printTotalPrice(long totalPrice) {
         outputView.printTotalPriceGuide();
         outputView.printPrice(totalPrice);
-    }
-
-    public void printNone() {
-        outputView.printNone();
     }
 
     public void printEventAmount(long totalBenefit, long dday, long weekend, long weekday, long special, long gift) {

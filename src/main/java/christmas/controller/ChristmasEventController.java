@@ -1,9 +1,9 @@
 package christmas.controller;
 
-import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_PROMOTION_MONTH;
-import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_PROMOTION_YEAR;
-import static christmas.model.constant.ChristmasPromotionConstant.GIFT_EVENT_MENU_ITEM;
-import static christmas.model.constant.ChristmasPromotionConstant.GIFT_EVENT_MENU_ITEM_AMOUNT;
+import static christmas.model.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_MONTH;
+import static christmas.model.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_YEAR;
+import static christmas.model.constant.ChristmasEventConstant.GIFT_EVENT_MENU_ITEM;
+import static christmas.model.constant.ChristmasEventConstant.GIFT_EVENT_MENU_ITEM_AMOUNT;
 
 import christmas.model.event.Badge;
 import christmas.model.event.EventManager;
@@ -11,11 +11,11 @@ import christmas.model.user.UserDate;
 import christmas.model.user.UserOrder;
 import christmas.view.UserIoManager;
 
-public class PromotionController {
+public class ChristmasEventController {
     private final UserIoManager userIoManager;
     private final EventManager eventManager;
 
-    public PromotionController(UserIoManager userIoManager, EventManager eventManager) {
+    public ChristmasEventController(UserIoManager userIoManager, EventManager eventManager) {
         this.userIoManager = userIoManager;
         this.eventManager = eventManager;
     }

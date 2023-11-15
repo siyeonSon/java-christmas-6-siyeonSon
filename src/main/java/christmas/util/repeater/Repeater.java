@@ -1,4 +1,4 @@
-package christmas.util;
+package christmas.util.repeater;
 
 import christmas.view.OutputView;
 import java.util.function.Supplier;

@@ -1,6 +1,6 @@
 package christmas.model.event;
 
-import christmas.model.date.PromotionPeriod;
+import christmas.model.date.EventPeriod;
 import christmas.model.user.UserDate;
 import christmas.model.user.UserOrder;
 import java.time.LocalDate;
@@ -10,10 +10,10 @@ public class SpecialEvent extends Event {
     private final List<LocalDate> promotionDates;
     private final long discount;
 
-    public SpecialEvent(UserDate userDate, UserOrder userOrder, PromotionPeriod promotionPeriod, List<LocalDate> promotionDates, long discount) {
+    public SpecialEvent(UserDate userDate, UserOrder userOrder, EventPeriod eventPeriod, List<LocalDate> promotionDates, long discount) {
         this.userDate = userDate;
         this.userOrder = userOrder;
-        this.promotionPeriod = promotionPeriod;
+        this.eventPeriod = eventPeriod;
         this.discount = discount;
         this.promotionDates = promotionDates;
     }

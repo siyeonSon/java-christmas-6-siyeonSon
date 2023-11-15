@@ -3,7 +3,7 @@ package christmas.model.constant;
 import christmas.model.menu.MenuItem;
 import java.util.List;
 
-public class ChristmasPromotionConstant {
+public class ChristmasEventConstant {
     public static final int CHRISTMAS_PROMOTION_YEAR = 2023;
     public static final int CHRISTMAS_PROMOTION_MONTH = 12;
     public static final int CHRISTMAS_PROMOTION_START_DATE = 1;

@@ -1,19 +1,19 @@
 package christmas.model.event;
 
-import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_D_DAY_DATE;
-import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_D_DAY_EVENT_BASE_DISCOUNT;
-import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_D_DAY_EVENT_DAILY_DISCOUNT;
-import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_PROMOTION_END_DATE;
-import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_PROMOTION_MONTH;
-import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_PROMOTION_START_DATE;
-import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_PROMOTION_YEAR;
-import static christmas.model.constant.ChristmasPromotionConstant.GIFT_EVENT_MENU_ITEM;
-import static christmas.model.constant.ChristmasPromotionConstant.GIFT_EVENT_STANDARD_AMOUNT;
-import static christmas.model.constant.ChristmasPromotionConstant.SPECIAL_EVENT_DAYS;
-import static christmas.model.constant.ChristmasPromotionConstant.SPECIAL_EVENT_DISCOUNT;
-import static christmas.model.constant.ChristmasPromotionConstant.WEEK_EVENT_DISCOUNT;
+import static christmas.model.constant.ChristmasEventConstant.CHRISTMAS_D_DAY_DATE;
+import static christmas.model.constant.ChristmasEventConstant.CHRISTMAS_D_DAY_EVENT_BASE_DISCOUNT;
+import static christmas.model.constant.ChristmasEventConstant.CHRISTMAS_D_DAY_EVENT_DAILY_DISCOUNT;
+import static christmas.model.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_END_DATE;
+import static christmas.model.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_MONTH;
+import static christmas.model.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_START_DATE;
+import static christmas.model.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_YEAR;
+import static christmas.model.constant.ChristmasEventConstant.GIFT_EVENT_MENU_ITEM;
+import static christmas.model.constant.ChristmasEventConstant.GIFT_EVENT_STANDARD_AMOUNT;
+import static christmas.model.constant.ChristmasEventConstant.SPECIAL_EVENT_DAYS;
+import static christmas.model.constant.ChristmasEventConstant.SPECIAL_EVENT_DISCOUNT;
+import static christmas.model.constant.ChristmasEventConstant.WEEK_EVENT_DISCOUNT;
 
-import christmas.model.date.PromotionPeriod;
+import christmas.model.date.EventPeriod;
 import christmas.model.user.UserDate;
 import christmas.model.user.UserOrder;
 import java.time.LocalDate;
@@ -53,15 +53,15 @@ public class EventManager {
         return badgeEvent.benefit();
     }
 
-    private PromotionPeriod getDdayPromotionPeriod() {
-        return new PromotionPeriod(
+    private EventPeriod getDdayPromotionPeriod() {
+        return new EventPeriod(
                 LocalDate.of(CHRISTMAS_PROMOTION_YEAR, CHRISTMAS_PROMOTION_MONTH, CHRISTMAS_PROMOTION_START_DATE),
                 LocalDate.of(CHRISTMAS_PROMOTION_YEAR, CHRISTMAS_PROMOTION_MONTH, CHRISTMAS_D_DAY_DATE)
         );
     }
 
-    private PromotionPeriod getPromotionPeriod() {
-        return new PromotionPeriod(
+    private EventPeriod getPromotionPeriod() {
+        return new EventPeriod(
                 LocalDate.of(CHRISTMAS_PROMOTION_YEAR, CHRISTMAS_PROMOTION_MONTH, CHRISTMAS_PROMOTION_START_DATE),
                 LocalDate.of(CHRISTMAS_PROMOTION_YEAR, CHRISTMAS_PROMOTION_MONTH, CHRISTMAS_PROMOTION_END_DATE)
         );

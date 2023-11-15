@@ -1,6 +1,6 @@
 package christmas.model.event;
 
-import christmas.model.date.PromotionPeriod;
+import christmas.model.date.EventPeriod;
 import christmas.model.user.UserDate;
 import christmas.model.user.UserOrder;
 
@@ -8,10 +8,10 @@ public class GiftEvent extends Event {
     private final long standard;
     private final long discount;
 
-    public GiftEvent(UserDate userDate, UserOrder userOrder, PromotionPeriod promotionPeriod, long standard, long discount) {
+    public GiftEvent(UserDate userDate, UserOrder userOrder, EventPeriod eventPeriod, long standard, long discount) {
         this.userDate = userDate;
         this.userOrder = userOrder;
-        this.promotionPeriod = promotionPeriod;
+        this.eventPeriod = eventPeriod;
         this.standard = standard;
         this.discount = discount;
     }

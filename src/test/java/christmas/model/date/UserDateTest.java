@@ -1,7 +1,7 @@
 package christmas.model.date;
 
-import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_PROMOTION_MONTH;
-import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_PROMOTION_YEAR;
+import static christmas.model.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_MONTH;
+import static christmas.model.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_YEAR;
 import static christmas.util.message.ErrorMessages.DATE_INVALID_EXCEPTION;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 

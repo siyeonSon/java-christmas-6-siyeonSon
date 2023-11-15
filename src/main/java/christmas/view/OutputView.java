@@ -1,6 +1,6 @@
 package christmas.view;
 
-import static christmas.model.constant.ChristmasPromotionConstant.CHRISTMAS_PROMOTION_MONTH;
+import static christmas.model.constant.ChristmasEventConstant.CHRISTMAS_PROMOTION_MONTH;
 import static christmas.util.message.ErrorMessages.PREFIX;
 import static christmas.util.message.ViewMessages.INPUT_DATE;
 import static christmas.util.message.ViewMessages.INPUT_ORDER;

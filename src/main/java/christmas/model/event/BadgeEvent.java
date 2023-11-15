@@ -1,21 +1,21 @@
 package christmas.model.event;
 
-import static christmas.model.constant.ChristmasPromotionConstant.MIN_PRICE;
+import static christmas.model.constant.ChristmasEventConstant.MIN_PRICE;
 import static christmas.model.event.Badge.NONE;
 
-import christmas.model.date.PromotionPeriod;
+import christmas.model.date.EventPeriod;
 import christmas.model.user.UserDate;
 import christmas.model.user.UserOrder;
 
 public class BadgeEvent {
     private final UserDate userDate;
     private final UserOrder userOrder;
-    private final PromotionPeriod promotionPeriod;
+    private final EventPeriod eventPeriod;
 
-    public BadgeEvent(UserDate userDate, UserOrder userOrder, PromotionPeriod promotionPeriod) {
+    public BadgeEvent(UserDate userDate, UserOrder userOrder, EventPeriod eventPeriod) {
         this.userDate = userDate;
         this.userOrder = userOrder;
-        this.promotionPeriod = promotionPeriod;
+        this.eventPeriod = eventPeriod;
     }
 
     public Badge benefit() {
@@ -26,7 +26,7 @@ public class BadgeEvent {
     }
 
     private boolean isValidEventPeriod() {
-        return userDate.isBetween(promotionPeriod.getStartDate(), promotionPeriod.getEndDate());
+        return userDate.isBetween(eventPeriod.getStartDate(), eventPeriod.getEndDate());
     }
 
     private boolean isValidPrice() {
